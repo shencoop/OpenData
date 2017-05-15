@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <link rel="stylesheet" href="css/leaflet-measure.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/leaflet-tilelayer-wmts.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/tainanvillage1.js"></script>
+        <script src="data/floodvillage2.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[22.8710305326,119.784034114],[23.4278619979,120.901049251]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var measureControl = new L.Control.Measure({
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash;Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        var img_0 = 'data/0.png';
+        var img_bounds_0 = [[23.0070879716,120.03368274],[23.4138113677,120.502754528]];
+        var overlay_0 = new L.imageOverlay(img_0, img_bounds_0);
+        bounds_group.addLayer(overlay_0);
+        map.addLayer(overlay_0);
+        function pop_tainanvillage1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VILLCODE'] !== null ? Autolinker.link(String(feature.properties['VILLCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNTYNAME'] !== null ? Autolinker.link(String(feature.properties['COUNTYNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TOWNNAME'] !== null ? Autolinker.link(String(feature.properties['TOWNNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VILLNAME'] !== null ? Autolinker.link(String(feature.properties['VILLNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VILLENG'] !== null ? Autolinker.link(String(feature.properties['VILLENG'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNTYID'] !== null ? Autolinker.link(String(feature.properties['COUNTYID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNTYCODE'] !== null ? Autolinker.link(String(feature.properties['COUNTYCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TOWNID'] !== null ? Autolinker.link(String(feature.properties['TOWNID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TOWNCODE'] !== null ? Autolinker.link(String(feature.properties['TOWNCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['count'] !== null ? Autolinker.link(String(feature.properties['count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['min'] !== null ? Autolinker.link(String(feature.properties['min'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['count_1'] !== null ? Autolinker.link(String(feature.properties['count_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sum'] !== null ? Autolinker.link(String(feature.properties['sum'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['min_1'] !== null ? Autolinker.link(String(feature.properties['min_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['max'] !== null ? Autolinker.link(String(feature.properties['max'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_tainanvillage1() {
+            return {
+                pane: 'pane_tainanvillage1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_tainanvillage1');
+        map.getPane('pane_tainanvillage1').style.zIndex = 401;
+        map.getPane('pane_tainanvillage1').style['mix-blend-mode'] = 'normal';
+    var layer_tainanvillage1 = new L.geoJson(json_tainanvillage1, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_tainanvillage1',
+        onEachFeature: pop_tainanvillage1,
+        style: style_tainanvillage1
+    });
+        bounds_group.addLayer(layer_tainanvillage1);
+        function pop_floodvillage2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">VILLCODE</th>\
+                        <td>' + (feature.properties['VILLCODE'] !== null ? Autolinker.link(String(feature.properties['VILLCODE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">COUNTYNAME</th>\
+                        <td>' + (feature.properties['COUNTYNAME'] !== null ? Autolinker.link(String(feature.properties['COUNTYNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TOWNNAME</th>\
+                        <td>' + (feature.properties['TOWNNAME'] !== null ? Autolinker.link(String(feature.properties['TOWNNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">VILLNAME</th>\
+                        <td>' + (feature.properties['VILLNAME'] !== null ? Autolinker.link(String(feature.properties['VILLNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">count</th>\
+                        <td>' + (feature.properties['count'] !== null ? Autolinker.link(String(feature.properties['count'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">max</th>\
+                        <td>' + (feature.properties['max'] !== null ? Autolinker.link(String(feature.properties['max'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_floodvillage2(feature) {
+            if (feature.properties['max'] >= 0.300000 && feature.properties['max'] <= 0.500000 ) {
+                return {
+                pane: 'pane_floodvillage2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,0.5)',
+            }
+            }
+            if (feature.properties['max'] >= 0.500000 && feature.properties['max'] <= 1.000000 ) {
+                return {
+                pane: 'pane_floodvillage2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(200,221,240,0.5)',
+            }
+            }
+            if (feature.properties['max'] >= 1.000000 && feature.properties['max'] <= 1.500000 ) {
+                return {
+                pane: 'pane_floodvillage2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(115,179,216,0.5)',
+            }
+            }
+            if (feature.properties['max'] >= 1.500000 && feature.properties['max'] <= 2.000000 ) {
+                return {
+                pane: 'pane_floodvillage2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(40,121,185,0.5)',
+            }
+            }
+            if (feature.properties['max'] >= 2.000000 && feature.properties['max'] <= 3.000000 ) {
+                return {
+                pane: 'pane_floodvillage2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,0.5)',
+            }
+            }
+        }
+        map.createPane('pane_floodvillage2');
+        map.getPane('pane_floodvillage2').style.zIndex = 402;
+        map.getPane('pane_floodvillage2').style['mix-blend-mode'] = 'normal';
+    var layer_floodvillage2 = new L.geoJson(json_floodvillage2, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_floodvillage2',
+        onEachFeature: pop_floodvillage2,
+        style: style_floodvillage2
+    });
+        bounds_group.addLayer(layer_floodvillage2);
+        map.addLayer(layer_floodvillage2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'flood_village<br /><table><tr><td style="text-align: center;"><img src="legend/floodvillage2_03050.png" /></td><td> 0.3- 0.5 </td></tr><tr><td style="text-align: center;"><img src="legend/floodvillage2_05101.png" /></td><td> 0.5 -1.0</td></tr><tr><td style="text-align: center;"><img src="legend/floodvillage2_10152.png" /></td><td> 1.0 - 1.5</td></tr><tr><td style="text-align: center;"><img src="legend/floodvillage2_15203.png" /></td><td> 1.5 - 2.0 </td></tr><tr><td style="text-align: center;"><img src="legend/floodvillage2_20304.png" /></td><td> 2.0 - 3.0 </td></tr></table>': layer_floodvillage2,'<img src="legend/tainanvillage1.png" /> tainan_village': layer_tainanvillage1,"淹水網格": overlay_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
