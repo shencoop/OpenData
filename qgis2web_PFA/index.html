@@ -36,10 +36,9 @@
         <script src="data/0.js"></script>
         <script src="data/1.js"></script>
         <script src="data/2.js"></script>
-        <script src="data/3.js"></script>
-        <script src="data/200mm4.js"></script>
-        <script src="data/350mm5.js"></script>
-        <script src="data/500mm6.js"></script>
+        <script src="data/200mm3.js"></script>
+        <script src="data/350mm4.js"></script>
+        <script src="data/500mm5.js"></script>
         <script>
         L.ImageOverlay.include({
             getBounds: function () {
@@ -71,25 +70,10 @@
         function pop_0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['TOWNID'] !== null ? Autolinker.link(String(feature.properties['TOWNID'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['TOWNCODE'] !== null ? Autolinker.link(String(feature.properties['TOWNCODE'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYNAME'] !== null ? Autolinker.link(String(feature.properties['COUNTYNAME'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TOWNNAME'] !== null ? Autolinker.link(String(feature.properties['TOWNNAME'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TOWNENG'] !== null ? Autolinker.link(String(feature.properties['TOWNENG'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYID'] !== null ? Autolinker.link(String(feature.properties['COUNTYID'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYCODE'] !== null ? Autolinker.link(String(feature.properties['COUNTYCODE'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Descriptio'] !== null ? Autolinker.link(String(feature.properties['Descriptio'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -99,13 +83,12 @@
             return {
                 pane: 'pane_0',
                 opacity: 1,
-                color: 'rgba(175,179,138,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 1,
-                fillColor: 'rgba(241,244,199,1.0)',
+                weight: 2.0, 
+                fillOpacity: 0,
             }
         }
         map.createPane('pane_0');
@@ -126,6 +109,9 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Descriptio'] !== null ? Autolinker.link(String(feature.properties['Descriptio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MASK'] !== null ? Autolinker.link(String(feature.properties['MASK'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -157,13 +143,16 @@
         function pop_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['COUNTYID'] !== null ? Autolinker.link(String(feature.properties['COUNTYID'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Descriptio'] !== null ? Autolinker.link(String(feature.properties['Descriptio'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['COUNTYCODE'] !== null ? Autolinker.link(String(feature.properties['COUNTYCODE'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['MASK'] !== null ? Autolinker.link(String(feature.properties['MASK'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['COUNTYNAME'] !== null ? Autolinker.link(String(feature.properties['COUNTYNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNTYENG'] !== null ? Autolinker.link(String(feature.properties['COUNTYENG'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -192,48 +181,7 @@
     });
         bounds_group.addLayer(layer_2);
         map.addLayer(layer_2);
-        function pop_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYID'] !== null ? Autolinker.link(String(feature.properties['COUNTYID'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYCODE'] !== null ? Autolinker.link(String(feature.properties['COUNTYCODE'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYNAME'] !== null ? Autolinker.link(String(feature.properties['COUNTYNAME'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['COUNTYENG'] !== null ? Autolinker.link(String(feature.properties['COUNTYENG'])) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent);
-        }
-
-        function style_3_0() {
-            return {
-                pane: 'pane_3',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0, 
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_3');
-        map.getPane('pane_3').style.zIndex = 403;
-        map.getPane('pane_3').style['mix-blend-mode'] = 'normal';
-    var layer_3 = new L.geoJson.multiStyle(json_3, {
-        attribution: '<a href=""></a>',
-        pane: 'pane_3',
-        onEachFeature: pop_3,
-        styles: [style_3_0,]
-    });
-        bounds_group.addLayer(layer_3);
-        map.addLayer(layer_3);
-        function pop_200mm4(feature, layer) {
+        function pop_200mm3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['RMO'] !== null ? Autolinker.link(String(feature.properties['RMO'])) : '') + '</td>\
@@ -290,11 +238,11 @@
             layer.bindPopup(popupContent);
         }
 
-        function style_200mm4_0(feature) {
+        function style_200mm3_0(feature) {
             switch(feature.properties['order']) {
                 case '1':
                     return {
-                pane: 'pane_200mm4',
+                pane: 'pane_200mm3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -308,7 +256,7 @@
                     break;
                 case '2':
                     return {
-                pane: 'pane_200mm4',
+                pane: 'pane_200mm3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -322,7 +270,7 @@
                     break;
                 case '3':
                     return {
-                pane: 'pane_200mm4',
+                pane: 'pane_200mm3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -336,7 +284,7 @@
                     break;
                 case '4':
                     return {
-                pane: 'pane_200mm4',
+                pane: 'pane_200mm3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -350,24 +298,24 @@
                     break;
             }
         }
-        map.createPane('pane_200mm4');
-        map.getPane('pane_200mm4').style.zIndex = 404;
-        map.getPane('pane_200mm4').style['mix-blend-mode'] = 'normal';
-        var layer_200mm4 = new L.geoJson.multiStyle(json_200mm4, {
+        map.createPane('pane_200mm3');
+        map.getPane('pane_200mm3').style.zIndex = 403;
+        map.getPane('pane_200mm3').style['mix-blend-mode'] = 'normal';
+        var layer_200mm3 = new L.geoJson.multiStyle(json_200mm3, {
             attribution: '<a href=""></a>',
-            pane: 'pane_200mm4',
-            onEachFeature: pop_200mm4,
+            pane: 'pane_200mm3',
+            onEachFeature: pop_200mm3,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_200mm4_0(feature))
+                return L.circleMarker(latlng, style_200mm3_0(feature))
             },
         ]});
-        bounds_group.addLayer(layer_200mm4);
-        map.addLayer(layer_200mm4);
-        function pop_350mm5(feature, layer) {
+        bounds_group.addLayer(layer_200mm3);
+        map.addLayer(layer_200mm3);
+        function pop_350mm4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['RMO'] !== null ? Autolinker.link(String(feature.properties['RMO'])) : '') + '</td>\
@@ -421,11 +369,11 @@
             layer.bindPopup(popupContent);
         }
 
-        function style_350mm5_0(feature) {
+        function style_350mm4_0(feature) {
             switch(feature.properties['order']) {
                 case '1':
                     return {
-                pane: 'pane_350mm5',
+                pane: 'pane_350mm4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -439,7 +387,7 @@
                     break;
                 case '2':
                     return {
-                pane: 'pane_350mm5',
+                pane: 'pane_350mm4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -453,7 +401,7 @@
                     break;
                 case '3':
                     return {
-                pane: 'pane_350mm5',
+                pane: 'pane_350mm4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -467,7 +415,7 @@
                     break;
                 case '4':
                     return {
-                pane: 'pane_350mm5',
+                pane: 'pane_350mm4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -481,24 +429,24 @@
                     break;
             }
         }
-        map.createPane('pane_350mm5');
-        map.getPane('pane_350mm5').style.zIndex = 405;
-        map.getPane('pane_350mm5').style['mix-blend-mode'] = 'normal';
-        var layer_350mm5 = new L.geoJson.multiStyle(json_350mm5, {
+        map.createPane('pane_350mm4');
+        map.getPane('pane_350mm4').style.zIndex = 404;
+        map.getPane('pane_350mm4').style['mix-blend-mode'] = 'normal';
+        var layer_350mm4 = new L.geoJson.multiStyle(json_350mm4, {
             attribution: '<a href=""></a>',
-            pane: 'pane_350mm5',
-            onEachFeature: pop_350mm5,
+            pane: 'pane_350mm4',
+            onEachFeature: pop_350mm4,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_350mm5_0(feature))
+                return L.circleMarker(latlng, style_350mm4_0(feature))
             },
         ]});
-        bounds_group.addLayer(layer_350mm5);
-        map.addLayer(layer_350mm5);
-        function pop_500mm6(feature, layer) {
+        bounds_group.addLayer(layer_350mm4);
+        map.addLayer(layer_350mm4);
+        function pop_500mm5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['RMO'] !== null ? Autolinker.link(String(feature.properties['RMO'])) : '') + '</td>\
@@ -552,11 +500,11 @@
             layer.bindPopup(popupContent);
         }
 
-        function style_500mm6_0(feature) {
+        function style_500mm5_0(feature) {
             switch(feature.properties['order']) {
                 case '1':
                     return {
-                pane: 'pane_500mm6',
+                pane: 'pane_500mm5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -570,7 +518,7 @@
                     break;
                 case '2':
                     return {
-                pane: 'pane_500mm6',
+                pane: 'pane_500mm5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -584,7 +532,7 @@
                     break;
                 case '3':
                     return {
-                pane: 'pane_500mm6',
+                pane: 'pane_500mm5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -598,7 +546,7 @@
                     break;
                 case '4':
                     return {
-                pane: 'pane_500mm6',
+                pane: 'pane_500mm5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -612,25 +560,25 @@
                     break;
             }
         }
-        map.createPane('pane_500mm6');
-        map.getPane('pane_500mm6').style.zIndex = 406;
-        map.getPane('pane_500mm6').style['mix-blend-mode'] = 'normal';
-        var layer_500mm6 = new L.geoJson.multiStyle(json_500mm6, {
+        map.createPane('pane_500mm5');
+        map.getPane('pane_500mm5').style.zIndex = 405;
+        map.getPane('pane_500mm5').style['mix-blend-mode'] = 'normal';
+        var layer_500mm5 = new L.geoJson.multiStyle(json_500mm5, {
             attribution: '<a href=""></a>',
-            pane: 'pane_500mm6',
-            onEachFeature: pop_500mm6,
+            pane: 'pane_500mm5',
+            onEachFeature: pop_500mm5,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_500mm6_0(feature))
+                return L.circleMarker(latlng, style_500mm5_0(feature))
             },
         ]});
-        bounds_group.addLayer(layer_500mm6);
-        map.addLayer(layer_500mm6);
+        bounds_group.addLayer(layer_500mm5);
+        map.addLayer(layer_500mm5);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'500mm易致災點位<br /><table><tr><td style="text-align: center;"><img src="legend/500mm6_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/500mm6_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/500mm6_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/500mm6_43.png" /></td><td>4</td></tr></table>': layer_500mm6,'350mm易致災點位<br /><table><tr><td style="text-align: center;"><img src="legend/350mm5_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/350mm5_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/350mm5_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/350mm5_43.png" /></td><td>4</td></tr></table>': layer_350mm5,'200mm易致災點位<br /><table><tr><td style="text-align: center;"><img src="legend/200mm4_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/200mm4_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/200mm4_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/200mm4_43.png" /></td><td>4</td></tr></table>': layer_200mm4,'<img src="legend/3.png" /> 縣市界': layer_3,'<img src="legend/2.png" /> 流域範圍': layer_2,'<img src="legend/1.png" /> 河川局管轄範圍': layer_1,'<img src="legend/0.png" /> 鄉鎮界': layer_0,}).addTo(map);
+        L.control.layers(baseMaps,{'500mm易致災點位<br /><table><tr><td style="text-align: center;"><img src="legend/500mm5_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/500mm5_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/500mm5_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/500mm5_43.png" /></td><td>4</td></tr></table>': layer_500mm5,'350mm易致災點位<br /><table><tr><td style="text-align: center;"><img src="legend/350mm4_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/350mm4_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/350mm4_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/350mm4_43.png" /></td><td>4</td></tr></table>': layer_350mm4,'200mm易致災點位<br /><table><tr><td style="text-align: center;"><img src="legend/200mm3_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/200mm3_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/200mm3_32.png" /></td><td>3</td></tr><tr><td style="text-align: center;"><img src="legend/200mm3_43.png" /></td><td>4</td></tr></table>': layer_200mm3,'<img src="legend/2.png" /> 縣市界': layer_2,'<img src="legend/1.png" /> 流域範圍': layer_1,'<img src="legend/0.png" /> 河川局管轄範圍': layer_0,}).addTo(map);
         setBounds();
         </script>
     </body>
