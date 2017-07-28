@@ -47,7 +47,7 @@
         });
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[21.8086109973,119.015189971],[25.5989179608,123.268315486]]);
+        }).fitBounds([[21.4078807556,116.818889288],[25.5218410892,125.238980407]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -205,9 +205,6 @@
                         <td colspan="2">' + (feature.properties['order'] !== null ? Autolinker.link(String(feature.properties['order'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['check'] !== null ? Autolinker.link(String(feature.properties['check'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['country'] !== null ? Autolinker.link(String(feature.properties['country'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -230,9 +227,6 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['event'] !== null ? Autolinker.link(String(feature.properties['event'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['field_17'] !== null ? Autolinker.link(String(feature.properties['field_17'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -337,9 +331,6 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['order'] !== null ? Autolinker.link(String(feature.properties['order'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['check'] !== null ? Autolinker.link(String(feature.properties['check'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['country'] !== null ? Autolinker.link(String(feature.properties['country'])) : '') + '</td>\
@@ -468,9 +459,6 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['order'] !== null ? Autolinker.link(String(feature.properties['order'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['check'] !== null ? Autolinker.link(String(feature.properties['check'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['country'] !== null ? Autolinker.link(String(feature.properties['country'])) : '') + '</td>\
