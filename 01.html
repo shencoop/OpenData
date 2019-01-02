@@ -54,13 +54,8 @@
 
     <script>
         var map = L.mapbox.map('map')
-            .setView([121, 21], 14);
+            .setView([22, 120.5], 14);
         
-        map.on('click', function(e) {
-    var latitude = e.latlng.lat;
-    var longitude = e.latlng.lng;
-    console.log(latitude + " - " + longitude);
- 
         // Add layers to the map
         L.control.layers({
             'Satellite Map': L.mapbox.tileLayer('bobbysud.map-l4i2m7nd', {
