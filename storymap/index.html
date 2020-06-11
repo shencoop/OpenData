@@ -96,11 +96,11 @@
 <script type="text/javascript">
     (function () {
         'use strict';
-
-        // additional layers
+ 
+      // additional layers
         var layers = {
-          'test' : L.tileLayer.wms('https://wmts.nlsc.gov.tw/wmts?', {
-              layers: 'EMAP5_OPENDATA',
+          'test' : L.tileLayer.wms('http://limes.grid.unep.ch/geoserver/wms?', {
+              layers: 'limes:Balkash_173_20140830_LC8_NDVI',
               tiled: true,
               format: 'image/png',
               transparent: true,
