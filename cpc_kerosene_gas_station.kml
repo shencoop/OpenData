@@ -1,0 +1,2125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>Address_Finish</name>
+<Style id="style1">
+	<IconStyle>
+		<Icon>
+			<href>http://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Placemark>
+<name>莒光路站</name>
+<description><![CDATA[<p>id: 1
+<br/>name: 莒光路站
+<br/>phone: 02-23028385
+<br/>Address: 台北市中正區莒光路2號
+<br/>Response_X: 121.50732
+<br/>Response_Y: 25.031428</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[莒光路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-23028385]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台北市中正區莒光路2號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.50732]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.031428]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.50732,25.031428,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中崙站</name>
+<description><![CDATA[<p>id: 2
+<br/>name: 中崙站
+<br/>phone: 02-27712548
+<br/>Address: 台北市中山區八德路二段214號
+<br/>Response_X: 121.53962
+<br/>Response_Y: 25.046379</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[2]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中崙站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-27712548]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台北市中山區八德路二段214號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.53962]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.046379]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.53962,25.046379,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>陽明山站</name>
+<description><![CDATA[<p>id: 3
+<br/>name: 陽明山站
+<br/>phone: 02-28616052
+<br/>Address: 台北市士林區陽明山格致路3號
+<br/>Response_X: 121.5457615
+<br/>Response_Y: 25.135589</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[陽明山站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-28616052]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台北市士林區陽明山格致路3號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.5457615]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.135589]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.5457615,25.135589,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中央北路站</name>
+<description><![CDATA[<p>id: 4
+<br/>name: 中央北路站
+<br/>phone: 02-28913744
+<br/>Address: 台北市北投區中央北路四段584號
+<br/>Response_X: 121.466123
+<br/>Response_Y: 25.126933</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[4]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中央北路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-28913744]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台北市北投區中央北路四段584號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.466123]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.126933]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.466123,25.126933,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>內湖站</name>
+<description><![CDATA[<p>id: 5
+<br/>name: 內湖站
+<br/>phone: 02-27920678
+<br/>Address: 台北市內湖區民權東路六段50號
+<br/>Response_X: 121.583976
+<br/>Response_Y: 25.068524</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[5]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[內湖站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-27920678]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台北市內湖區民權東路六段50號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.583976]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.068524]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.583976,25.068524,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>成功一路站</name>
+<description><![CDATA[<p>id: 6
+<br/>name: 成功一路站
+<br/>phone: 02-24316683
+<br/>Address: 基隆市仁愛區成功一路105號
+<br/>Response_X: 121.737551
+<br/>Response_Y: 25.12683</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[6]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[成功一路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-24316683]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[基隆市仁愛區成功一路105號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.737551]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.12683]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.737551,25.12683,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>東明路站</name>
+<description><![CDATA[<p>id: 7
+<br/>name: 東明路站
+<br/>phone: 02-24660611
+<br/>Address: 基隆市信義區東明路138號
+<br/>Response_X: 121.75879
+<br/>Response_Y: 25.127932</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[7]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[東明路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-24660611]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[基隆市信義區東明路138號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.75879]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.127932]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.75879,25.127932,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>安樂站</name>
+<description><![CDATA[<p>id: 8
+<br/>name: 安樂站
+<br/>phone: 02-24311788
+<br/>Address: 基隆市安樂區麥金路441號
+<br/>Response_X: 121.718861
+<br/>Response_Y: 25.126358</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[8]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[安樂站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-24311788]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[基隆市安樂區麥金路441號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.718861]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.126358]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.718861,25.126358,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>板橋民族路站</name>
+<description><![CDATA[<p>id: 9
+<br/>name: 板橋民族路站
+<br/>phone: 02-29536247
+<br/>Address: 新北市板橋區民族路90號
+<br/>Response_X: 121.463426
+<br/>Response_Y: 25.009155</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[9]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[板橋民族路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-29536247]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市板橋區民族路90號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.463426]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.009155]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.463426,25.009155,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>汐止站</name>
+<description><![CDATA[<p>id: 10
+<br/>name: 汐止站
+<br/>phone: 02-26412246
+<br/>Address: 新北市汐止區大同路一段353號
+<br/>Response_X: 121.639546
+<br/>Response_Y: 25.060002</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[10]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[汐止站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-26412246]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市汐止區大同路一段353號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.639546]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.060002]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.639546,25.060002,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>瑞芳站</name>
+<description><![CDATA[<p>id: 11
+<br/>name: 瑞芳站
+<br/>phone: 02-24972341
+<br/>Address: 新北市瑞芳區中山路200號
+<br/>Response_X: 121.801402
+<br/>Response_Y: 25.106864</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[11]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[瑞芳站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-24972341]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市瑞芳區中山路200號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.801402]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.106864]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.801402,25.106864,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>大豐站</name>
+<description><![CDATA[<p>id: 12
+<br/>name: 大豐站
+<br/>phone: 02-29117053
+<br/>Address: 新北市新店區北新路二段205號
+<br/>Response_X: 121.542169
+<br/>Response_Y: 24.978401</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[12]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[大豐站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-29117053]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市新店區北新路二段205號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.542169]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.978401]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.542169,24.978401,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>新店中正路站</name>
+<description><![CDATA[<p>id: 13
+<br/>name: 新店中正路站
+<br/>phone: 02-22192678
+<br/>Address: 新北市新店區中正路470號
+<br/>Response_X: 121.533998
+<br/>Response_Y: 24.981024</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[13]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[新店中正路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-22192678]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市新店區中正路470號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.533998]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.981024]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.533998,24.981024,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中和站</name>
+<description><![CDATA[<p>id: 14
+<br/>name: 中和站
+<br/>phone: 02-22493364
+<br/>Address: 新北市中和區中和路260號
+<br/>Response_X: 121.507831
+<br/>Response_Y: 24.999383</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[14]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中和站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-22493364]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市中和區中和路260號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.507831]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.999383]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.507831,24.999383,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>積穗站</name>
+<description><![CDATA[<p>id: 15
+<br/>name: 積穗站
+<br/>phone: 02-22219719
+<br/>Address: 新北市中和區中山路二段550號
+<br/>Response_X: 121.483658
+<br/>Response_Y: 25.005134</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[15]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[積穗站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-22219719]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市中和區中山路二段550號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.483658]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.005134]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.483658,25.005134,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>鶯歌站</name>
+<description><![CDATA[<p>id: 16
+<br/>name: 鶯歌站
+<br/>phone: 02-26792944
+<br/>Address: 新北市鶯歌區文化路152號
+<br/>Response_X: 121.352237
+<br/>Response_Y: 24.950427</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[16]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[鶯歌站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-26792944]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市鶯歌區文化路152號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.352237]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.950427]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.352237,24.950427,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>新莊站</name>
+<description><![CDATA[<p>id: 17
+<br/>name: 新莊站
+<br/>phone: 02-29965736
+<br/>Address: 新北市新莊區中正路338號
+<br/>Response_X: 121.445265
+<br/>Response_Y: 25.034784</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[17]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[新莊站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-29965736]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市新莊區中正路338號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.445265]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.034784]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.445265,25.034784,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>泰新站</name>
+<description><![CDATA[<p>id: 18
+<br/>name: 泰新站
+<br/>phone: 02-29094220
+<br/>Address: 新北市泰山區新北大道五段1號
+<br/>Response_X: 121.438796
+<br/>Response_Y: 25.051314</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[18]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[泰新站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-29094220]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市泰山區新北大道五段1號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.438796]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.051314]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.438796,25.051314,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>淡海新市鎮站</name>
+<description><![CDATA[<p>id: 19
+<br/>name: 淡海新市鎮站
+<br/>phone: 02-26228923
+<br/>Address: 新北市淡水區埤島里二鄰淡金路2段599號
+<br/>Response_X: 121.446152
+<br/>Response_Y: 25.192014</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[淡海新市鎮站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-26228923]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市淡水區埤島里二鄰淡金路2段599號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.446152]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.192014]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.446152,25.192014,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>三芝站</name>
+<description><![CDATA[<p>id: 20
+<br/>name: 三芝站
+<br/>phone: 02-26362403
+<br/>Address: 新北市三芝區埔頭里31鄰埔頭15號
+<br/>Response_X: 121.495273
+<br/>Response_Y: 25.259834</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[20]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[三芝站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[02-26362403]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新北市三芝區埔頭里31鄰埔頭15號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.495273]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.259834]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.495273,25.259834,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>宜蘭站</name>
+<description><![CDATA[<p>id: 21
+<br/>name: 宜蘭站
+<br/>phone: 03-9282621
+<br/>Address: 宜蘭縣宜蘭市中山路五段139號
+<br/>Response_X: 121.756495
+<br/>Response_Y: 24.770475</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[21]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[宜蘭站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-9282621]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[宜蘭縣宜蘭市中山路五段139號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.756495]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.770475]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.756495,24.770475,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>員山站</name>
+<description><![CDATA[<p>id: 22
+<br/>name: 員山站
+<br/>phone: 03-9223041
+<br/>Address: 宜蘭縣員山鄉員山路一段31號
+<br/>Response_X: 121.731075
+<br/>Response_Y: 24.747602</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[22]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[員山站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-9223041]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[宜蘭縣員山鄉員山路一段31號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.731075]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.747602]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.731075,24.747602,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中正南路站</name>
+<description><![CDATA[<p>id: 23
+<br/>name: 中正南路站
+<br/>phone: 03-9543031
+<br/>Address: 宜蘭縣羅東鎮中正南路9號
+<br/>Response_X: 121.772006
+<br/>Response_Y: 24.66822</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[23]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中正南路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-9543031]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[宜蘭縣羅東鎮中正南路9號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.772006]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.66822]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.772006,24.66822,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>羅東站</name>
+<description><![CDATA[<p>id: 24
+<br/>name: 羅東站
+<br/>phone: 03-9654651
+<br/>Address: 宜蘭縣五結鄉中正路二段94號
+<br/>Response_X: 121.769375
+<br/>Response_Y: 24.69749</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[羅東站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-9654651]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[宜蘭縣五結鄉中正路二段94號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.769375]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.69749]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.769375,24.69749,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>光復路站</name>
+<description><![CDATA[<p>id: 25
+<br/>name: 光復路站
+<br/>phone: 03-5718604
+<br/>Address: 新竹市東區光復路二段716號
+<br/>Response_X: 120.990049
+<br/>Response_Y: 24.800263</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[25]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[光復路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-5718604]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新竹市東區光復路二段716號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.990049]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.800263]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.990049,24.800263,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>北大路站</name>
+<description><![CDATA[<p>id: 26
+<br/>name: 北大路站
+<br/>phone: 03-5227664
+<br/>Address: 新竹市北區北大路374號
+<br/>Response_X: 120.960897
+<br/>Response_Y: 24.805325</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[26]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[北大路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-5227664]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新竹市北區北大路374號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.960897]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.805325]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.960897,24.805325,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>府前站</name>
+<description><![CDATA[<p>id: 27
+<br/>name: 府前站
+<br/>phone: 03-5556350
+<br/>Address: 新竹縣竹北市縣政二路112號
+<br/>Response_X: 121.014871
+<br/>Response_Y: 24.823937</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[27]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[府前站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-5556350]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新竹縣竹北市縣政二路112號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.014871]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.823937]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.014871,24.823937,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>竹北站</name>
+<description><![CDATA[<p>id: 28
+<br/>name: 竹北站
+<br/>phone: 03-5552154
+<br/>Address: 新竹縣竹北市中華路439號
+<br/>Response_X: 121.005219
+<br/>Response_Y: 24.8409</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[28]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[竹北站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-5552154]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新竹縣竹北市中華路439號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.005219]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.8409]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.005219,24.8409,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>竹東站</name>
+<description><![CDATA[<p>id: 29
+<br/>name: 竹東站
+<br/>phone: 03-5962447
+<br/>Address: 新竹縣竹東鎮東寧路一段2號
+<br/>Response_X: 121.096479
+<br/>Response_Y: 24.722493</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[29]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[竹東站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-5962447]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[新竹縣竹東鎮東寧路一段2號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.096479]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.722493]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.096479,24.722493,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中壢工二站</name>
+<description><![CDATA[<p>id: 30
+<br/>name: 中壢工二站
+<br/>phone: 03-4620443
+<br/>Address: 桃園市中壢區吉林路37巷15號
+<br/>Response_X: 121.247202
+<br/>Response_Y: 24.979896</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[30]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中壢工二站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-4620443]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市中壢區吉林路37巷15號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.247202]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.979896]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.247202,24.979896,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>平鎮站</name>
+<description><![CDATA[<p>id: 31
+<br/>name: 平鎮站
+<br/>phone: 03-4592501
+<br/>Address: 桃園市中壢區環中東路二段659號
+<br/>Response_X: 121.230126
+<br/>Response_Y: 24.944367</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[31]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[平鎮站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-4592501]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市中壢區環中東路二段659號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.230126]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.944367]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.230126,24.944367,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>平鎮站</name>
+<description><![CDATA[<p>id: 32
+<br/>name: 平鎮站
+<br/>phone: 03-4934734
+<br/>Address: 桃園市平鎮區延平路二段152號
+<br/>Response_X: 121.210633
+<br/>Response_Y: 24.948155</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[32]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[平鎮站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-4934734]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市平鎮區延平路二段152號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.210633]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.948155]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.210633,24.948155,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>龍潭站</name>
+<description><![CDATA[<p>id: 33
+<br/>name: 龍潭站
+<br/>phone: 03-4792614
+<br/>Address: 桃園市龍潭區北龍路264號
+<br/>Response_X: 121.2173302
+<br/>Response_Y: 24.8678319</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[33]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[龍潭站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-4792614]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市龍潭區北龍路264號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.2173302]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.8678319]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.2173302,24.8678319,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>梅溪加油站</name>
+<description><![CDATA[<p>id: 34
+<br/>name: 梅溪加油站
+<br/>phone: 03-4782632
+<br/>Address: 桃園市楊梅區中山北路一段391號
+<br/>Response_X: 121.159567
+<br/>Response_Y: 24.908664</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[34]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[梅溪加油站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-4782632]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市楊梅區中山北路一段391號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.159567]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.908664]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.159567,24.908664,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>三民路站</name>
+<description><![CDATA[<p>id: 35
+<br/>name: 三民路站
+<br/>phone: 03-3348425
+<br/>Address: 桃園市桃園區三民路一段150號
+<br/>Response_X: 121.320579
+<br/>Response_Y: 24.99969</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[35]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[三民路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-3348425]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市桃園區三民路一段150號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.320579]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.99969]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.320579,24.99969,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>春日路站</name>
+<description><![CDATA[<p>id: 36
+<br/>name: 春日路站
+<br/>phone: 03-3550381
+<br/>Address: 桃園市桃園區春日路971號
+<br/>Response_X: 121.310415
+<br/>Response_Y: 25.010434</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[36]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[春日路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-3550381]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市桃園區春日路971號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.310415]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.010434]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.310415,25.010434,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>林口工三站</name>
+<description><![CDATA[<p>id: 37
+<br/>name: 林口工三站
+<br/>phone: 03-3282232
+<br/>Address: 桃園市龜山區樂善里文化一路33號
+<br/>Response_X: 121.370216
+<br/>Response_Y: 25.061616</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[37]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[林口工三站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-3282232]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市龜山區樂善里文化一路33號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.370216]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.061616]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.370216,25.061616,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>蘆竹站</name>
+<description><![CDATA[<p>id: 38
+<br/>name: 蘆竹站
+<br/>phone: 03-3224714
+<br/>Address: 桃園市蘆竹區錦興里中正路342號
+<br/>Response_X: 121.291255
+<br/>Response_Y: 25.049297</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[38]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[蘆竹站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-3224714]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[桃園市蘆竹區錦興里中正路342號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.291255]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[25.049297]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.291255,25.049297,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>頭份站</name>
+<description><![CDATA[<p>id: 39
+<br/>name: 頭份站
+<br/>phone: 037-663242
+<br/>Address: 苗栗縣頭份市自強路2號
+<br/>Response_X: 120.912396
+<br/>Response_Y: 24.690743</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[39]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[頭份站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[037-663242]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[苗栗縣頭份市自強路2號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.912396]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.690743]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.912396,24.690743,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>苑裡站</name>
+<description><![CDATA[<p>id: 40
+<br/>name: 苑裡站
+<br/>phone: 037-866747
+<br/>Address: 苗栗縣苑裡鎮中山路19號
+<br/>Response_X: 120.649617
+<br/>Response_Y: 24.439202</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[40]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[苑裡站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[037-866747]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[苗栗縣苑裡鎮中山路19號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.649617]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.439202]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.649617,24.439202,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中苗站</name>
+<description><![CDATA[<p>id: 41
+<br/>name: 中苗站
+<br/>phone: 037-326764
+<br/>Address: 苗栗縣苗栗市中正路442號
+<br/>Response_X: 120.821754
+<br/>Response_Y: 24.559974</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[41]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中苗站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[037-326764]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[苗栗縣苗栗市中正路442號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.821754]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.559974]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.821754,24.559974,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>振興路站</name>
+<description><![CDATA[<p>id: 42
+<br/>name: 振興路站
+<br/>phone: 04-22134096
+<br/>Address: 台中市東區泉源里建成路556號
+<br/>Response_X: 120.6937
+<br/>Response_Y: 24.133393</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[42]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[振興路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-22134096]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市東區泉源里建成路556號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.6937]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.133393]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.6937,24.133393,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>五權西路站</name>
+<description><![CDATA[<p>id: 43
+<br/>name: 五權西路站
+<br/>phone: 04-23893367
+<br/>Address: 台中市南屯區五權西路二段566號
+<br/>Response_X: 120.641024
+<br/>Response_Y: 24.141514</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[43]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[五權西路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-23893367]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市南屯區五權西路二段566號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.641024]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.141514]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.641024,24.141514,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>復興路站</name>
+<description><![CDATA[<p>id: 44
+<br/>name: 復興路站
+<br/>phone: 04-22617800
+<br/>Address: 台中市南區復興路三段73號
+<br/>Response_X: 120.669138
+<br/>Response_Y: 24.128884</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[44]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[復興路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-22617800]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市南區復興路三段73號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.669138]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.128884]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.669138,24.128884,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>青島路站</name>
+<description><![CDATA[<p>id: 45
+<br/>name: 青島路站
+<br/>phone: 04-22925400
+<br/>Address: 台中市北屯區文心路四段119號
+<br/>Response_X: 120.674494
+<br/>Response_Y: 24.17432</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[45]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[青島路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-22925400]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市北屯區文心路四段119號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.674494]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.17432]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.674494,24.17432,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>霧峰站</name>
+<description><![CDATA[<p>id: 46
+<br/>name: 霧峰站
+<br/>phone: 04-23393270
+<br/>Address: 台中市霧峰區中正路784號
+<br/>Response_X: 120.698454
+<br/>Response_Y: 24.060952</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[46]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[霧峰站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-23393270]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市霧峰區中正路784號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.698454]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.060952]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.698454,24.060952,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>烏日高鐵站</name>
+<description><![CDATA[<p>id: 47
+<br/>name: 烏日高鐵站
+<br/>phone: 04-23377492
+<br/>Address: 台中市烏日區建國路265號
+<br/>Response_X: 120.624255
+<br/>Response_Y: 24.109262</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[47]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[烏日高鐵站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-23377492]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市烏日區建國路265號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.624255]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.109262]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.624255,24.109262,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>翁子站</name>
+<description><![CDATA[<p>id: 48
+<br/>name: 翁子站
+<br/>phone: 04-25225510
+<br/>Address: 台中市豐原區豐勢路一段588號
+<br/>Response_X: 120.734686
+<br/>Response_Y: 24.259834</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[48]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[翁子站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-25225510]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市豐原區豐勢路一段588號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.734686]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.259834]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.734686,24.259834,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>后里站</name>
+<description><![CDATA[<p>id: 49
+<br/>name: 后里站
+<br/>phone: 04-25562174
+<br/>Address: 台中市后里區三豐路四段269號
+<br/>Response_X: 120.72392
+<br/>Response_Y: 24.315469</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[49]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[后里站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-25562174]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市后里區三豐路四段269號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.72392]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.315469]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.72392,24.315469,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>東勢站</name>
+<description><![CDATA[<p>id: 50
+<br/>name: 東勢站
+<br/>phone: 04-25872454
+<br/>Address: 台中市東勢區粵寧里豐勢路678號
+<br/>Response_X: 120.823903
+<br/>Response_Y: 24.261576</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[50]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[東勢站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-25872454]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市東勢區粵寧里豐勢路678號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.823903]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.261576]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.823903,24.261576,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>豐原交流道站</name>
+<description><![CDATA[<p>id: 51
+<br/>name: 豐原交流道站
+<br/>phone: 04-25228204
+<br/>Address: 台中市神岡區岸裡里中山路88號
+<br/>Response_X: 120.696271
+<br/>Response_Y: 24.248804</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[51]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[豐原交流道站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-25228204]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市神岡區岸裡里中山路88號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.696271]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.248804]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.696271,24.248804,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>沙鹿站</name>
+<description><![CDATA[<p>id: 52
+<br/>name: 沙鹿站
+<br/>phone: 04-26314644
+<br/>Address: 台中市沙鹿區台灣大道7段391號
+<br/>Response_X: 120.572765
+<br/>Response_Y: 24.231187</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[52]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[沙鹿站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-26314644]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市沙鹿區台灣大道7段391號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.572765]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.231187]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.572765,24.231187,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>龍井站</name>
+<description><![CDATA[<p>id: 53
+<br/>name: 龍井站
+<br/>phone: 04-26353010
+<br/>Address: 台中市龍井區竹坑里沙田路四段175號
+<br/>Response_X: 120.545479
+<br/>Response_Y: 24.190588</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[53]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[龍井站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-26353010]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市龍井區竹坑里沙田路四段175號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.545479]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.190588]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.545479,24.190588,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>大甲站</name>
+<description><![CDATA[<p>id: 54
+<br/>name: 大甲站
+<br/>phone: 04-26872314
+<br/>Address: 台中市大甲區頂店里中山路一段1120號
+<br/>Response_X: 120.631868
+<br/>Response_Y: 24.354727</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[54]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[大甲站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-26872314]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台中市大甲區頂店里中山路一段1120號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.631868]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.354727]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.631868,24.354727,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>彰化站</name>
+<description><![CDATA[<p>id: 55
+<br/>name: 彰化站
+<br/>phone: 04-7222759
+<br/>Address: 彰化縣彰化市和調里中山路三段27號
+<br/>Response_X: 120.553672
+<br/>Response_Y: 24.084793</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[55]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[彰化站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-7222759]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣彰化市和調里中山路三段27號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.553672]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.084793]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.553672,24.084793,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>福興站</name>
+<description><![CDATA[<p>id: 56
+<br/>name: 福興站
+<br/>phone: 04-7772534
+<br/>Address: 彰化縣福興鄉橋頭村彰鹿路七段477號
+<br/>Response_X: 120.445034
+<br/>Response_Y: 24.047782</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[56]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[福興站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-7772534]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣福興鄉橋頭村彰鹿路七段477號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.445034]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.047782]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.445034,24.047782,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>和美站</name>
+<description><![CDATA[<p>id: 57
+<br/>name: 和美站
+<br/>phone: 04-7553024
+<br/>Address: 彰化縣和美鎮和東里彰美路五段85號
+<br/>Response_X: 120.502858
+<br/>Response_Y: 24.106821</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[57]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[和美站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-7553024]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣和美鎮和東里彰美路五段85號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.502858]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[24.106821]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.502858,24.106821,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>員林站</name>
+<description><![CDATA[<p>id: 58
+<br/>name: 員林站
+<br/>phone: 04-8320294
+<br/>Address: 彰化縣員林市三多里中山路二段495號
+<br/>Response_X: 120.571237
+<br/>Response_Y: 23.971404</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[58]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[員林站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-8320294]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣員林市三多里中山路二段495號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.571237]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.971404]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.571237,23.971404,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>社頭站</name>
+<description><![CDATA[<p>id: 59
+<br/>name: 社頭站
+<br/>phone: 04-8732534
+<br/>Address: 彰化縣社頭鄉員集路二段583號
+<br/>Response_X: 120.583729
+<br/>Response_Y: 23.904548</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[59]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[社頭站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-8732534]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣社頭鄉員集路二段583號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.583729]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.904548]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.583729,23.904548,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>北斗站</name>
+<description><![CDATA[<p>id: 60
+<br/>name: 北斗站
+<br/>phone: 04-8882154
+<br/>Address: 彰化縣北斗鎮大道里中山路二段207號
+<br/>Response_X: 120.519809
+<br/>Response_Y: 23.877081</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[60]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[北斗站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-8882154]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣北斗鎮大道里中山路二段207號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.519809]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.877081]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.519809,23.877081,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>二林站</name>
+<description><![CDATA[<p>id: 61
+<br/>name: 二林站
+<br/>phone: 04-8960049
+<br/>Address: 彰化縣二林鎮豐田里二溪路一段212號
+<br/>Response_X: 120.373737
+<br/>Response_Y: 23.902401</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[61]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[二林站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[04-8960049]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[彰化縣二林鎮豐田里二溪路一段212號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.373737]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.902401]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.373737,23.902401,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>南崗工業區站</name>
+<description><![CDATA[<p>id: 62
+<br/>name: 南崗工業區站
+<br/>phone: 049-2251460
+<br/>Address: 南投縣南投市平山里仁和路13號
+<br/>Response_X: 120.670671
+<br/>Response_Y: 23.922602</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[62]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[南崗工業區站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[049-2251460]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[南投縣南投市平山里仁和路13號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.670671]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.922602]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.670671,23.922602,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>草屯站</name>
+<description><![CDATA[<p>id: 63
+<br/>name: 草屯站
+<br/>phone: 049-2362049
+<br/>Address: 南投縣草屯鎮玉峰里中正路880號
+<br/>Response_X: 120.686724
+<br/>Response_Y: 23.984698</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[63]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[草屯站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[049-2362049]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[南投縣草屯鎮玉峰里中正路880號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.686724]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.984698]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.686724,23.984698,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>埔里站</name>
+<description><![CDATA[<p>id: 64
+<br/>name: 埔里站
+<br/>phone: 049-2982403
+<br/>Address: 南投縣埔里鎮中山路三段172號
+<br/>Response_X: 120.961682
+<br/>Response_Y: 23.967856</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[64]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[埔里站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[049-2982403]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[南投縣埔里鎮中山路三段172號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.961682]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.967856]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.961682,23.967856,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>水里站</name>
+<description><![CDATA[<p>id: 65
+<br/>name: 水里站
+<br/>phone: 049-2770244
+<br/>Address: 南投縣水里鄉南光村民生路53號
+<br/>Response_X: 120.857586
+<br/>Response_Y: 23.808662</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[65]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[水里站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[049-2770244]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[南投縣水里鄉南光村民生路53號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.857586]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.808662]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.857586,23.808662,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>竹山站</name>
+<description><![CDATA[<p>id: 66
+<br/>name: 竹山站
+<br/>phone: 049-2642304
+<br/>Address: 南投縣竹山鎮竹山里集山路三段884號
+<br/>Response_X: 120.684859
+<br/>Response_Y: 23.758369</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[66]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[竹山站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[049-2642304]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[南投縣竹山鎮竹山里集山路三段884號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.684859]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.758369]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.684859,23.758369,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中山路站</name>
+<description><![CDATA[<p>id: 67
+<br/>name: 中山路站
+<br/>phone: 05-2789320
+<br/>Address: 嘉義市東區中山路90號
+<br/>Response_X: 120.45936
+<br/>Response_Y: 23.48234</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[67]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中山路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[05-2789320]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[嘉義市東區中山路90號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.45936]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.48234]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.45936,23.48234,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>梅山二站</name>
+<description><![CDATA[<p>id: 68
+<br/>name: 梅山二站
+<br/>phone: 05-2625102
+<br/>Address: 嘉義縣梅山鄉過山村7鄰開元后46號
+<br/>Response_X: 120.536851
+<br/>Response_Y: 23.591154</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[68]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[梅山二站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[05-2625102]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[嘉義縣梅山鄉過山村7鄰開元后46號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.536851]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.591154]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.536851,23.591154,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>石卓站</name>
+<description><![CDATA[<p>id: 69
+<br/>name: 石卓站
+<br/>phone: 05-2561944
+<br/>Address: 嘉義縣竹崎鄉中和村永和1-1號
+<br/>Response_X: 120.689409
+<br/>Response_Y: 23.464608</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[69]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[石卓站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[05-2561944]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[嘉義縣竹崎鄉中和村永和1-1號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.689409]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.464608]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.689409,23.464608,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>虎尾站</name>
+<description><![CDATA[<p>id: 71
+<br/>name: 虎尾站
+<br/>phone: 05-6322524
+<br/>Address: 雲林縣虎尾鎮平和里光復路131號
+<br/>Response_X: 120.446669
+<br/>Response_Y: 23.70904</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[71]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[虎尾站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[05-6322524]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[雲林縣虎尾鎮平和里光復路131號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.446669]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.70904]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.446669,23.70904,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>雅虎站</name>
+<description><![CDATA[<p>id: 72
+<br/>name: 雅虎站
+<br/>phone: 05-5514796
+<br/>Address: 雲林縣斗六市虎溪里西平路776號
+<br/>Response_X: 120.523625
+<br/>Response_Y: 23.726682</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[72]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[雅虎站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[05-5514796]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[雲林縣斗六市虎溪里西平路776號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.523625]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.726682]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.523625,23.726682,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>北港新德路站</name>
+<description><![CDATA[<p>id: 73
+<br/>name: 北港新德路站
+<br/>phone: 05-7824045
+<br/>Address: 雲林縣北港鎮新街里新德路27號
+<br/>Response_X: 120.301492
+<br/>Response_Y: 23.58544</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[73]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[北港新德路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[05-7824045]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[雲林縣北港鎮新街里新德路27號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.301492]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.58544]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.301492,23.58544,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>大同路站</name>
+<description><![CDATA[<p>id: 74
+<br/>name: 大同路站
+<br/>phone: 06-2153503
+<br/>Address: 台南市南區大同路二段380號
+<br/>Response_X: 120.213724
+<br/>Response_Y: 22.975231</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[74]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[大同路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-2153503]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台南市南區大同路二段380號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.213724]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.975231]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.213724,22.975231,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>成功路站</name>
+<description><![CDATA[<p>id: 75
+<br/>name: 成功路站
+<br/>phone: 06-2222894
+<br/>Address: 台南市北區成功路16號
+<br/>Response_X: 120.209382
+<br/>Response_Y: 22.998013</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[75]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[成功路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-2222894]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台南市北區成功路16號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.209382]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.998013]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.209382,22.998013,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>慶平路站</name>
+<description><![CDATA[<p>id: 76
+<br/>name: 慶平路站
+<br/>phone: 06-2970189
+<br/>Address: 台南市安平區慶平路485號
+<br/>Response_X: 120.173433
+<br/>Response_Y: 22.996841</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[76]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[慶平路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-2970189]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台南市安平區慶平路485號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.173433]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.996841]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.173433,22.996841,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>永康站</name>
+<description><![CDATA[<p>id: 77
+<br/>name: 永康站
+<br/>phone: 06-2433157
+<br/>Address: 台南市永康區蔦松里中正北路348號
+<br/>Response_X: 120.2553091
+<br/>Response_Y: 23.0419345</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[77]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[永康站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-2433157]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台南市永康區蔦松里中正北路348號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.2553091]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.0419345]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.2553091,23.0419345,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>佳里仁愛路站</name>
+<description><![CDATA[<p>id: 78
+<br/>name: 佳里仁愛路站
+<br/>phone: 06-7229504
+<br/>Address: 台南市佳里區仁愛路67號
+<br/>Response_X: 120.184657
+<br/>Response_Y: 23.151098</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[78]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[佳里仁愛路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-7229504]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台南市佳里區仁愛路67號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.184657]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.151098]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.184657,23.151098,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>新營交流道站</name>
+<description><![CDATA[<p>id: 79
+<br/>name: 新營交流道站
+<br/>phone: 06-6561512
+<br/>Address: 台南市新營區復興路692號
+<br/>Response_X: 120.294023
+<br/>Response_Y: 23.30668</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[79]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[新營交流道站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-6561512]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台南市新營區復興路692號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.294023]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.30668]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.294023,23.30668,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>高鳳站</name>
+<description><![CDATA[<p>id: 80
+<br/>name: 高鳳站
+<br/>phone: 07-7491901
+<br/>Address: 高雄市苓雅區建國一路3號
+<br/>Response_X: 120.342506
+<br/>Response_Y: 22.628201</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[80]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[高鳳站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-7491901]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市苓雅區建國一路3號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.342506]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.628201]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.342506,22.628201,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>青年路站</name>
+<description><![CDATA[<p>id: 81
+<br/>name: 青年路站
+<br/>phone: 07-3352549
+<br/>Address: 高雄市苓雅區民權一路105號
+<br/>Response_X: 120.311836
+<br/>Response_Y: 22.622952</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[81]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[青年路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-3352549]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市苓雅區民權一路105號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.311836]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.622952]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.311836,22.622952,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>瑞豐站</name>
+<description><![CDATA[<p>id: 82
+<br/>name: 瑞豐站
+<br/>phone: 07-7610629
+<br/>Address: 高雄市前鎮區瑞福路2號
+<br/>Response_X: 120.336549
+<br/>Response_Y: 22.604865</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[82]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[瑞豐站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-7610629]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市前鎮區瑞福路2號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.336549]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.604865]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.336549,22.604865,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>建工路站</name>
+<description><![CDATA[<p>id: 83
+<br/>name: 建工路站
+<br/>phone: 07-3832928
+<br/>Address: 高雄市三民區建工路566號
+<br/>Response_X: 120.324676
+<br/>Response_Y: 22.650307</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[83]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[建工路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-3832928]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市三民區建工路566號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.324676]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.650307]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.324676,22.650307,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>左營站</name>
+<description><![CDATA[<p>id: 84
+<br/>name: 左營站
+<br/>phone: 07-5825621
+<br/>Address: 高雄市左營區中華一路2-11號
+<br/>Response_X: 120.286333
+<br/>Response_Y: 22.671137</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[84]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[左營站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-5825621]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市左營區中華一路2-11號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.286333]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.671137]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.286333,22.671137,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>仁武站</name>
+<description><![CDATA[<p>id: 85
+<br/>name: 仁武站
+<br/>phone: 07-3711361
+<br/>Address: 高雄市仁武區鳳仁路282號
+<br/>Response_X: 120.344331
+<br/>Response_Y: 22.703368</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[85]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[仁武站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-3711361]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市仁武區鳳仁路282號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.344331]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.703368]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.344331,22.703368,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>路竹站</name>
+<description><![CDATA[<p>id: 86
+<br/>name: 路竹站
+<br/>phone: 07-6962240
+<br/>Address: 高雄市路竹區中山路589號
+<br/>Response_X: 120.256631
+<br/>Response_Y: 22.86632</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[86]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[路竹站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-6962240]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市路竹區中山路589號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.256631]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.86632]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.256631,22.86632,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>美濃站</name>
+<description><![CDATA[<p>id: 87
+<br/>name: 美濃站
+<br/>phone: 07-6812044
+<br/>Address: 高雄市美濃區和合里成功路133號
+<br/>Response_X: 120.546892
+<br/>Response_Y: 22.893975</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[87]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[美濃站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[07-6812044]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[高雄市美濃區和合里成功路133號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.546892]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.893975]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.546892,22.893975,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>馬公站</name>
+<description><![CDATA[<p>id: 88
+<br/>name: 馬公站
+<br/>phone: 06-9272595
+<br/>Address: 澎湖縣馬公市民福路18號
+<br/>Response_X: 119.568572
+<br/>Response_Y: 23.565102</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[88]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[馬公站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[06-9272595]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[澎湖縣馬公市民福路18號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[119.568572]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.565102]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>119.568572,23.565102,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>復興路站</name>
+<description><![CDATA[<p>id: 89
+<br/>name: 復興路站
+<br/>phone: 08-7525421
+<br/>Address: 屏東縣屏東市復興路261號
+<br/>Response_X: 120.4879
+<br/>Response_Y: 22.660834</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[89]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[復興路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[08-7525421]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[屏東縣屏東市復興路261號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.4879]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.660834]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.4879,22.660834,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>里港站</name>
+<description><![CDATA[<p>id: 90
+<br/>name: 里港站
+<br/>phone: 08-7752054
+<br/>Address: 屏東縣里港鄉大平村中山南路25號
+<br/>Response_X: 120.493623
+<br/>Response_Y: 22.772058</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[90]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[里港站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[08-7752054]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[屏東縣里港鄉大平村中山南路25號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.493623]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.772058]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.493623,22.772058,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>潮州站</name>
+<description><![CDATA[<p>id: 91
+<br/>name: 潮州站
+<br/>phone: 08-7882044
+<br/>Address: 屏東縣潮州鎮三和里延平路217號
+<br/>Response_X: 120.539964
+<br/>Response_Y: 22.556906</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[91]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[潮州站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[08-7882044]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[屏東縣潮州鎮三和里延平路217號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.539964]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.556906]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.539964,22.556906,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>東港站</name>
+<description><![CDATA[<p>id: 92
+<br/>name: 東港站
+<br/>phone: 08-8322352
+<br/>Address: 屏東縣東港鎮興東里中正路一段85號
+<br/>Response_X: 120.454927
+<br/>Response_Y: 22.471634</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[92]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[東港站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[08-8322352]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[屏東縣東港鎮興東里中正路一段85號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[120.454927]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.471634]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>120.454927,22.471634,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>中山路站</name>
+<description><![CDATA[<p>id: 93
+<br/>name: 中山路站
+<br/>phone: 089-323132
+<br/>Address: 台東縣台東市新生路136號
+<br/>Response_X: 121.148034
+<br/>Response_Y: 22.753136</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[93]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[中山路站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[089-323132]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台東縣台東市新生路136號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.148034]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.753136]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.148034,22.753136,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>卑南站</name>
+<description><![CDATA[<p>id: 94
+<br/>name: 卑南站
+<br/>phone: 089-222010
+<br/>Address: 台東縣台東市更生北路20號
+<br/>Response_X: 121.126365
+<br/>Response_Y: 22.777758</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[94]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[卑南站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[089-222010]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台東縣台東市更生北路20號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.126365]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[22.777758]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.126365,22.777758,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>池上站</name>
+<description><![CDATA[<p>id: 95
+<br/>name: 池上站
+<br/>phone: 089-862634
+<br/>Address: 台東縣池上鄉福原村中山路25號
+<br/>Response_X: 121.212608
+<br/>Response_Y: 23.120836</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[95]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[池上站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[089-862634]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[台東縣池上鄉福原村中山路25號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.212608]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.120836]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.212608,23.120836,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>港口站</name>
+<description><![CDATA[<p>id: 96
+<br/>name: 港口站
+<br/>phone: 03-8228640
+<br/>Address: 花蓮縣花蓮市吉林路2號
+<br/>Response_X: 121.631255
+<br/>Response_Y: 23.99733</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[96]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[港口站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-8228640]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[花蓮縣花蓮市吉林路2號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.631255]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.99733]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.631255,23.99733,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>南埔站</name>
+<description><![CDATA[<p>id: 97
+<br/>name: 南埔站
+<br/>phone: 03-8522853
+<br/>Address: 花蓮縣吉安鄉仁和村中正路二段6號
+<br/>Response_X: 121.589597
+<br/>Response_Y: 23.964134</p>]]></description>
+<ExtendedData>
+	<Data name="id"><displayName>id</displayName><value><![CDATA[97]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[南埔站]]></value></Data>
+	<Data name="phone"><displayName>phone</displayName><value><![CDATA[03-8522853]]></value></Data>
+	<Data name="Address"><displayName>Address</displayName><value><![CDATA[花蓮縣吉安鄉仁和村中正路二段6號]]></value></Data>
+	<Data name="Response_X"><displayName>Response_X</displayName><value><![CDATA[121.589597]]></value></Data>
+	<Data name="Response_Y"><displayName>Response_Y</displayName><value><![CDATA[23.964134]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>121.589597,23.964134,0.00000</coordinates>
+	</Point>
+</Placemark>
+
+</Document>
+</kml>
