@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>分享連結到LINE訊息</title>
+</head>
+<body>
+  <!-- 建立分享連結的按鈕 -->
+  <button id="shareButton">分享連結到LINE</button>
+
+  <script>
+    // 當按鈕被點擊時觸發分享功能
+    document.getElementById('shareButton').addEventListener('click', function() {
+      var linkToShare = 'https://www.example.com'; // 要分享的網頁連結
+
+      // 使用LINE的URI Scheme啟動LINE應用程式並開啟分享對話框
+      var lineUrl = 'line://msg/text/' + encodeURIComponent(linkToShare);
+      window.location.href = lineUrl;
+    });
+  </script>
+</body>
+</html>
