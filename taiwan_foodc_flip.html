@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨機翻頁美食選擇器</title>
+    <style>
+        /* 基本樣式設定 */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        /* 翻頁容器 */
+        #flip-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: #fff;
+            border: 5px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* 翻頁的頁面 */
+        .flip-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffc107;
+            color: #333;
+            border: 1px solid #ddd;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 當前可見頁面 */
+        .flip-page.active {
+            opacity: 1;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>隨機翻頁美食選擇器</h1>
+    <div id="flip-container">
+        <!-- 頁面內容 -->
+        <div class="flip-page">牛排</div>
+        <div class="flip-page">炒飯</div>
+        <div class="flip-page">蚵仔煎</div>
+        <div class="flip-page">滷肉飯</div>
+        <div class="flip-page">臭豆腐</div>
+        <div class="flip-page">珍珠奶茶</div>
+        <div class="flip-page">雞排</div>
+        <div class="flip-page">麻辣火鍋</div>
+        <div class="flip-page">刈包</div>
+        <div class="flip-page">肉圓</div>
+    </div>
+    <button id="start-button">開始翻頁</button>
+
+    <script>
+        const foodNames = [
+            "牛排", "炒飯", "蚵仔煎", "滷肉飯", "臭豆腐", 
+            "珍珠奶茶", "雞排", "麻辣火鍋", "刈包", "肉圓"
+        ];
+
+        const pages = document.querySelectorAll('.flip-page');
+        const startButton = document.getElementById('start-button');
+
+        let interval; // 控制翻頁的計時器
+        let currentPage = 0;
+
+        // 隨機索引生成函數
+        function getRandomIndex(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        // 開始翻頁動畫
+        function startFlipping() {
+            currentPage = 0; // 重置頁面
+            pages.forEach(page => page.classList.remove('active'));
+
+            interval = setInterval(() => {
+                pages.forEach(page => page.classList.remove('active'));
+                pages[currentPage].classList.add('active'); // 顯示當前頁面
+                currentPage = (currentPage + 1) % pages.length; // 切換到下一頁
+            }, 100); // 每 100 毫秒翻一頁
+        }
+
+        // 停止翻頁並選擇隨機頁面
+        function stopAndChooseRandom() {
+            clearInterval(interval); // 停止翻頁
+            const randomIndex = getRandomIndex(pages.length); // 隨機索引
+            pages.forEach(page => page.classList.remove('active')); // 清除所有狀態
+            pages[randomIndex].classList.add('active'); // 顯示隨機頁面
+        }
+
+        startButton.addEventListener('click', () => {
+            startButton.disabled = true; // 禁用按鈕
+            startFlipping(); // 開始翻頁動畫
+
+            // 5 秒後停止並選擇隨機頁面
+            setTimeout(() => {
+                stopAndChooseRandom();
+                startButton.disabled = false; // 重新啟用按鈕
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
