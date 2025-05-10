@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>道路里程定位資訊系統</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 600px; width: 100%; }
+    .control-panel { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h2>道路里程定位資訊系統</h2>
+  <div class="control-panel">
+    <label for="routeTypeSelect">類別：</label>
+    <select id="routeTypeSelect">
+      <option value="全部">全部</option>
+      <option value="國道">國道</option>
+      <option value="省道">省道</option>
+    </select>
+
+    <label for="roadSelect">路線名稱：</label>
+    <select id="roadSelect"></select>
+
+    <label for="mileSelect">里程樁：</label>
+    <select id="mileSelect"></select>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    let milestoneData = [];
+
+    fetch('all_milestones_combined.csv')
+      .then(response => response.text())
+      .then(text => {
+        const rows = text.split('\n').slice(1);
+        milestoneData = rows.map(row => {
+          const [mile, road, lon, lat, z, dir, km2, type] = row.split(',');
+          return { mile, road, lon: parseFloat(lon), lat: parseFloat(lat), z, dir, km2, type };
+        }).filter(m => !isNaN(m.lon) && !isNaN(m.lat));
+        initSelectors();
+      });
+
+    const routeTypeSelect = document.getElementById('routeTypeSelect');
+    const roadSelect = document.getElementById('roadSelect');
+    const mileSelect = document.getElementById('mileSelect');
+    const map = L.map('map').setView([23.5, 121], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let marker;
+
+    function initSelectors() {
+      routeTypeSelect.addEventListener('change', updateRoadOptions);
+      roadSelect.addEventListener('change', updateMileOptions);
+      mileSelect.addEventListener('change', updateMap);
+      updateRoadOptions();
+    }
+
+    function updateRoadOptions() {
+      const selectedType = routeTypeSelect.value;
+      roadSelect.innerHTML = '';
+      const roads = [...new Set(milestoneData.filter(item => selectedType === '全部' || item.type === selectedType).map(item => item.road))];
+      roads.forEach(road => {
+        const option = document.createElement('option');
+        option.value = road;
+        option.text = road;
+        roadSelect.add(option);
+      });
+      roadSelect.dispatchEvent(new Event('change'));
+    }
+
+    function updateMileOptions() {
+      const selectedType = routeTypeSelect.value;
+      const selectedRoad = roadSelect.value;
+      mileSelect.innerHTML = '';
+      const miles = milestoneData.filter(item => (selectedType === '全部' || item.type === selectedType) && item.road === selectedRoad);
+      miles.forEach(m => {
+        const option = document.createElement('option');
+        option.value = m.mile;
+        option.text = m.mile;
+        mileSelect.add(option);
+      });
+      mileSelect.dispatchEvent(new Event('change'));
+    }
+
+    function updateMap() {
+      const selectedRoad = roadSelect.value;
+      const selectedMile = mileSelect.value;
+      const selectedType = routeTypeSelect.value;
+      const point = milestoneData.find(item => item.road === selectedRoad && item.mile === selectedMile && (selectedType === '全部' || item.type === selectedType));
+      if (point) {
+        if (marker) map.removeLayer(marker);
+        marker = L.marker([point.lat, point.lon]).addTo(map)
+          .bindPopup(`<b>${point.type}｜${point.road} ${point.mile}</b><br>海拔: ${point.z || '無資料'}m<br>方向: ${point.dir || '無資料'}`)
+          .openPopup();
+        map.setView([point.lat, point.lon], 15);
+      }
+    }
+  </script>
+</body>
+</html>
