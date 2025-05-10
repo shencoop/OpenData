@@ -75,7 +75,7 @@
       if (point) {
         if (marker) map.removeLayer(marker);
         marker = L.marker([point.lat, point.lon]).addTo(map)
-          .bindPopup(`<b>${selectedRoad} ${selectedMile}</b><br>${point.info.replace(/\n/g, '<br>')}`)
+          .bindPopup(`<b>${selectedRoad} ${selectedMile}</b><br>${point.info.replace(/\\n/g, '<br>')}`)
           .openPopup();
         map.setView([point.lat, point.lon], 15);
       }
