@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>道路里程定位資訊系統</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 600px; width: 100%; }
+    .control-panel { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h2>道路里程定位資訊系統</h2>
+  <div class="control-panel">
+    <label for="roadSelect">公路編號：</label>
+    <select id="roadSelect"></select>
+
+    <label for="mileSelect">起點樁號：</label>
+    <select id="mileSelect"></select>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    let roadData = [];
+
+    fetch('road_mileage_data.json')
+      .then(response => response.json())
+      .then(data => {
+        roadData = data;
+        initSelectors();
+      });
+
+    const roadSelect = document.getElementById('roadSelect');
+    const mileSelect = document.getElementById('mileSelect');
+    const map = L.map('map').setView([23.5, 121], 8);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let marker;
+
+    function initSelectors() {
+      const roads = [...new Set(roadData.map(item => item.road))];
+      roads.forEach(road => {
+        const option = document.createElement('option');
+        option.value = road;
+        option.text = road;
+        roadSelect.add(option);
+      });
+      roadSelect.addEventListener('change', updateMileOptions);
+      mileSelect.addEventListener('change', updateMap);
+      roadSelect.dispatchEvent(new Event('change'));
+    }
+
+    function updateMileOptions() {
+      const selectedRoad = roadSelect.value;
+      mileSelect.innerHTML = '';
+      const miles = roadData.filter(item => item.road === selectedRoad);
+      miles.forEach(m => {
+        const option = document.createElement('option');
+        option.value = m.mile;
+        option.text = m.mile;
+        mileSelect.add(option);
+      });
+      mileSelect.dispatchEvent(new Event('change'));
+    }
+
+    function updateMap() {
+      const selectedRoad = roadSelect.value;
+      const selectedMile = mileSelect.value;
+      const point = roadData.find(item => item.road === selectedRoad && item.mile === selectedMile);
+      if (point) {
+        if (marker) map.removeLayer(marker);
+        marker = L.marker([point.lat, point.lon]).addTo(map)
+          .bindPopup(`<b>${selectedRoad} ${selectedMile}</b><br>${point.info.replace(/\n/g, '<br>')}`)
+          .openPopup();
+        map.setView([point.lat, point.lon], 15);
+      }
+    }
+  </script>
+</body>
+</html>
