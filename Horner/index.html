@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Horner 查詢系統</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map { height: 400px; }
+        body { font-family: sans-serif; margin: 20px; }
+        select, button { margin: 5px; }
+        table { border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ccc; padding: 5px 10px; text-align: center; }
+        .highlight { background-color: #333; color: #fff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Horner 參數與累積雨量查詢（對數皮爾遜三型）</h2>
+    <label>選擇流域：</label>
+    <select id="basinSelect"></select>
+    <label>選擇測站：</label>
+    <select id="stationSelect"></select>
+    <label>選擇重現期：</label>
+    <select id="recurSelect"></select>
+    <label>選擇延時：</label>
+    <select id="durationSelect"></select>
+    <button onclick="searchData()">查詢</button>
+
+    <div id="result"></div>
+    <div id="map"></div>
+
+    <script src="dropdownData.js"></script>
+    <script src="tableData.js"></script>
+    <script>
+        const dropdownData = PLACEHOLDER_DROPDOWN;
+        const rawData = PLACEHOLDER_TABLE;
+
+        const basinSel = document.getElementById('basinSelect');
+        const stationSel = document.getElementById('stationSelect');
+        const recurSel = document.getElementById('recurSelect');
+        const durationSel = document.getElementById('durationSelect');
+
+        dropdownData.basins.forEach(b => {
+            const opt = document.createElement('option');
+            opt.value = opt.text = b;
+            basinSel.add(opt);
+        });
+
+        basinSel.onchange = () => {
+            stationSel.innerHTML = '';
+            recurSel.innerHTML = '';
+            dropdownData.stationsByBasin[basinSel.value].forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = opt.text = s;
+                stationSel.add(opt);
+            });
+            stationSel.onchange();
+        };
+
+        stationSel.onchange = () => {
+            recurSel.innerHTML = '';
+            const key = `${basinSel.value}||${stationSel.value}`;
+            const periods = dropdownData.recurPeriodsByStation[key] || [];
+            periods.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = opt.text = p;
+                recurSel.add(opt);
+            });
+        };
+
+        dropdownData.durations.forEach(d => {
+            const opt = document.createElement('option');
+            opt.value = opt.text = d;
+            durationSel.add(opt);
+        });
+
+        basinSel.onchange();
+
+        function searchData() {
+            const basin = basinSel.value;
+            const station = stationSel.value;
+            const recur = recurSel.value;
+            const duration = durationSel.value;
+
+            const filtered = rawData.filter(r => r.basin === basin && r.NAME === station);
+            const recurSet = Array.from(new Set(filtered.map(r => r['重期期距(年)']))).sort((a,b)=>a-b);
+
+            let table = '<table><thead><tr><th>重現期\\延時</th>' + dropdownData.durations.map(d => `<th>${d}</th>`).join('') + '</tr></thead><tbody>';
+
+            recurSet.forEach(rp => {
+                const row = filtered.find(r => r['重期期距(年)'] == rp);
+                table += '<tr>' +
+                    `<td>${rp}</td>` +
+                    dropdownData.durations.map(d => {
+                        const val = row ? parseFloat(row[d + '_accum']).toFixed(1) : '-';
+                        const cls = (rp == recur && d === duration) ? 'highlight' : '';
+                        return `<td class="${cls}">${val}</td>`;
+                    }).join('') + '</tr>';
+            });
+
+            table += '</tbody></table>';
+
+            const rowA = filtered.find(r => r['重期期距(年)'] == recur);
+            const abc = rowA ? `a = ${rowA.a}, b = ${rowA.b}, c = ${rowA.c}` : '查無 Horner 參數';
+
+            document.getElementById('result').innerHTML = `
+                <h3>${station} (${basin})</h3>
+                <p><b>ID：</b> ${filtered[0]?.ID || '未知'}</p>
+                <p><b>Horner 對數皮爾遜三型參數：</b> ${abc}</p>
+                ${table}
+            `;
+
+            if (filtered.length > 0) {
+                map.setView([filtered[0].WGS84_Y, filtered[0].WGS84_X], 10);
+                marker.setLatLng([filtered[0].WGS84_Y, filtered[0].WGS84_X]).bindPopup(station).openPopup();
+            }
+        }
+
+        const map = L.map('map').setView([23.5, 121], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        const marker = L.marker([23.5, 121]).addTo(map);
+    </script>
+</body>
+</html>
