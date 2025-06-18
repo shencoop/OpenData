@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,76 +27,61 @@
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script>
-    let geojsonData;
-    fetch('stations.geojson')
-      .then(response => response.json())
-      .then(data => {
-        geojsonData = data;
-        initMap();
+    const geojsonData = REPLACE_WITH_GEOJSON;
+
+    const map = L.map('map').setView([23.7, 121], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: 'OpenStreetMap contributors'
+    }).addTo(map);
+
+    const typeSet = new Set();
+    const adminSet = new Set();
+
+    geojsonData.features.forEach(f => {
+      typeSet.add(f.properties.type);
+      adminSet.add(f.properties.AdminName);
+    });
+
+    const typeFilter = document.getElementById('typeFilter');
+    const adminFilter = document.getElementById('adminFilter');
+
+    typeSet.forEach(type => {
+      const opt = document.createElement('option');
+      opt.value = type;
+      opt.textContent = type;
+      typeFilter.appendChild(opt);
+    });
+
+    adminSet.forEach(admin => {
+      const opt = document.createElement('option');
+      opt.value = admin;
+      opt.textContent = admin;
+      adminFilter.appendChild(opt);
+    });
+
+    let markerLayer = null;
+    function renderMap() {
+      if (markerLayer) map.removeLayer(markerLayer);
+      const selectedType = typeFilter.value;
+      const selectedAdmin = adminFilter.value;
+      const filtered = geojsonData.features.filter(f => {
+        return (selectedType === 'all' || f.properties.type === selectedType) &&
+               (selectedAdmin === 'all' || f.properties.AdminName === selectedAdmin);
       });
-
-    function initMap() {
-      const map = L.map('map').setView([23.7, 121], 8);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: 'OpenStreetMap contributors'
-      }).addTo(map);
-
-      const typeSet = new Set();
-      const adminSet = new Set();
-
-      const markerLayer = L.geoJSON(geojsonData, {
+      markerLayer = L.geoJSON(filtered, {
         onEachFeature: function (feature, layer) {
           const props = feature.properties;
           layer.bindPopup(`<b>${props.Name}</b><br>Station ID: ${props.StationId}<br>Type: ${props.type}<br>Admin: ${props.AdminName}`);
-          layer.featureType = props.type;
-          layer.featureAdmin = props.AdminName;
         }
       });
-
-      markerLayer.eachLayer(layer => {
-        typeSet.add(layer.featureType);
-        adminSet.add(layer.featureAdmin);
-      });
-
       markerLayer.addTo(map);
-
-      const typeFilter = document.getElementById('typeFilter');
-      const adminFilter = document.getElementById('adminFilter');
-
-      typeSet.forEach(type => {
-        const opt = document.createElement('option');
-        opt.value = type;
-        opt.textContent = type;
-        typeFilter.appendChild(opt);
-      });
-
-      adminSet.forEach(admin => {
-        const opt = document.createElement('option');
-        opt.value = admin;
-        opt.textContent = admin;
-        adminFilter.appendChild(opt);
-      });
-
-      function updateMap() {
-        const selectedType = typeFilter.value;
-        const selectedAdmin = adminFilter.value;
-        markerLayer.clearLayers();
-        L.geoJSON(geojsonData, {
-          filter: function (feature) {
-            return (selectedType === 'all' || feature.properties.type === selectedType) &&
-                   (selectedAdmin === 'all' || feature.properties.AdminName === selectedAdmin);
-          },
-          onEachFeature: function (feature, layer) {
-            const props = feature.properties;
-            layer.bindPopup(`<b>${props.Name}</b><br>Station ID: ${props.StationId}<br>Type: ${props.type}<br>Admin: ${props.AdminName}`);
-          }
-        }).addTo(map);
-      }
-
-      typeFilter.addEventListener('change', updateMap);
-      adminFilter.addEventListener('change', updateMap);
     }
+
+    typeFilter.addEventListener('change', renderMap);
+    adminFilter.addEventListener('change', renderMap);
+
+    renderMap(); // 初始渲染
   </script>
 </body>
 </html>
