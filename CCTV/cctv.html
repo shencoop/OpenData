@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CCTV Map Viewer - All Cities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/papaparse@5.3.2/papaparse.min.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { height: 95vh; width: 100vw; }
+    #controls {
+      padding: 10px;
+      background: white;
+      z-index: 1000;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    }
+    .popup-image {
+      width: 200%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+    .popup-image:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <label for="countySelect">選擇縣市：</label>
+    <select id="countySelect">
+      <option value="">-- 全部 --</option>
+    </select>
+  </div>
+  <div id="map"></div>
+
+  <script>
+    const map = L.map('map').setView([23.7, 121], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: 'Map data &copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const markerLayer = L.layerGroup().addTo(map);
+    let allData = [];
+
+    function openImageInNewTab(url) {
+      window.open(url, '_blank');
+    }
+
+    function updateMapByCounty(county) {
+      markerLayer.clearLayers();
+      const filtered = county ? allData.filter(c => c.COUNTYNAME === county) : allData;
+      filtered.forEach(cctv => {
+        if (!cctv.PositionLat || !cctv.PositionLon) return;
+        const marker = L.marker([parseFloat(cctv.PositionLat), parseFloat(cctv.PositionLon)]);
+        const popupContent = `
+          <strong>${cctv.RoadName}</strong><br>
+          Direction: ${cctv.RoadDirection}<br>
+          Mile: ${cctv.LocationMile}<br>
+          Lon: ${cctv.PositionLon}<br>
+          Lat: ${cctv.PositionLat}<br>
+          <img src="${cctv.VideoImageURL}" class="popup-image" alt="CCTV Snapshot" onclick="window.open('${cctv.VideoImageURL}', '_blank')" />
+        `;
+        marker.bindPopup(popupContent);
+        marker.addTo(markerLayer);
+      });
+    }
+
+    // 載入 CSV 檔案
+    Papa.parse("CCTV_Cname.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        allData = results.data.filter(r => r.PositionLat && r.PositionLon);
+        const counties = [...new Set(allData.map(r => r.COUNTYNAME).filter(Boolean))].sort();
+        const select = document.getElementById('countySelect');
+        counties.forEach(name => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          select.appendChild(opt);
+        });
+        updateMapByCounty("");
+      }
+    });
+
+    document.getElementById('countySelect').addEventListener('change', e => {
+      updateMapByCounty(e.target.value);
+    });
+  </script>
+</body>
+</html>
