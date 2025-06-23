@@ -21,7 +21,7 @@
       box-shadow: 0 0 6px rgba(0,0,0,0.3);
     }
     .popup-image {
-      width: 200%;
+      max-width: 100%;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
@@ -54,10 +54,15 @@
       const img = new Image();
       img.src = url;
       img.onload = function() {
-        const width = Math.min(this.naturalWidth, screen.width * 0.9);
-        const height = Math.min(this.naturalHeight, screen.height * 0.9);
-        const popup = window.open('', '_blank', `width=${width},height=${height}`);
-        popup.document.write(`<html><head><title>影像預覽</title></head><body style='margin:0;'><img src='${url}' style='width:100%;height:auto;display:block;margin:auto;'/></body></html>`);
+        const width = Math.min(this.naturalWidth + 40, screen.width * 0.95);
+        const height = Math.min(this.naturalHeight + 40, screen.height * 0.95);
+        const popup = window.open('', '_blank', `width=${width},height=${height},resizable=yes,scrollbars=no`);
+        popup.document.write(`<!DOCTYPE html>
+          <html><head><title>影像預覽</title>
+          <style>body{margin:0;background:#000;display:flex;justify-content:center;align-items:center;height:100vh;}</style>
+          </head><body>
+          <img src='${url}' style='max-width:100%;max-height:100%;display:block;' />
+          </body></html>`);
       };
     }
 
