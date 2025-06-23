@@ -25,11 +25,12 @@
       max-width: none;
     }
     .popup-image {
-      max-width: 100%;
+      width: 300%;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
       margin-top: 5px;
+      display: block;
     }
     .popup-image:hover {
       transform: scale(1.05);
@@ -59,8 +60,8 @@
       const img = new Image();
       img.src = url;
       img.onload = function() {
-        const width = Math.min(this.naturalWidth + 40, screen.width * 0.95);
-        const height = Math.min(this.naturalHeight + 40, screen.height * 0.95);
+        const width = Math.min(this.naturalWidth * 1.5 + 40, screen.width * 0.95);
+        const height = Math.min(this.naturalHeight * 1.5 + 40, screen.height * 0.95);
         const popup = window.open('', '_blank', `width=${width},height=${height},resizable=yes,scrollbars=no`);
         popup.document.write(`<!DOCTYPE html>
           <html><head><title>影像預覽</title>
