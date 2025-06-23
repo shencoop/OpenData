@@ -50,8 +50,15 @@
     const markerLayer = L.layerGroup().addTo(map);
     let allData = [];
 
-    function openImageInNewTab(url) {
-      window.open(url, '_blank');
+    function openImageInPopup(url) {
+      const img = new Image();
+      img.src = url;
+      img.onload = function() {
+        const width = Math.min(this.naturalWidth, screen.width * 0.9);
+        const height = Math.min(this.naturalHeight, screen.height * 0.9);
+        const popup = window.open('', '_blank', `width=${width},height=${height}`);
+        popup.document.write(`<html><head><title>影像預覽</title></head><body style='margin:0;'><img src='${url}' style='width:100%;height:auto;display:block;margin:auto;'/></body></html>`);
+      };
     }
 
     function updateMapByCounty(county) {
@@ -66,7 +73,7 @@
           Mile: ${cctv.LocationMile}<br>
           Lon: ${cctv.PositionLon}<br>
           Lat: ${cctv.PositionLat}<br>
-          <img src="${cctv.VideoImageURL}" class="popup-image" alt="CCTV Snapshot" onclick="window.open('${cctv.VideoImageURL}', '_blank')" />
+          <img src="${cctv.VideoImageURL}" class="popup-image" alt="CCTV Snapshot" onclick="openImageInPopup('${cctv.VideoImageURL}')" />
         `;
         marker.bindPopup(popupContent);
         marker.addTo(markerLayer);
