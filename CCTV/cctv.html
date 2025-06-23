@@ -20,11 +20,16 @@
       border-radius: 5px;
       box-shadow: 0 0 6px rgba(0,0,0,0.3);
     }
+    .leaflet-popup-content {
+      width: auto;
+      max-width: none;
+    }
     .popup-image {
       max-width: 100%;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
+      margin-top: 5px;
     }
     .popup-image:hover {
       transform: scale(1.05);
@@ -73,12 +78,14 @@
         if (!cctv.PositionLat || !cctv.PositionLon) return;
         const marker = L.marker([parseFloat(cctv.PositionLat), parseFloat(cctv.PositionLon)]);
         const popupContent = `
-          <strong>${cctv.RoadName}</strong><br>
-          Direction: ${cctv.RoadDirection}<br>
-          Mile: ${cctv.LocationMile}<br>
-          Lon: ${cctv.PositionLon}<br>
-          Lat: ${cctv.PositionLat}<br>
-          <img src="${cctv.VideoImageURL}" class="popup-image" alt="CCTV Snapshot" onclick="openImageInPopup('${cctv.VideoImageURL}')" />
+          <div style="font-size:14px;">
+            <strong>${cctv.RoadName}</strong><br>
+            Direction: ${cctv.RoadDirection}<br>
+            Mile: ${cctv.LocationMile}<br>
+            Lon: ${cctv.PositionLon}<br>
+            Lat: ${cctv.PositionLat}<br>
+            <img src="${cctv.VideoImageURL}" class="popup-image" alt="CCTV Snapshot" onclick="openImageInPopup('${cctv.VideoImageURL}')" />
+          </div>
         `;
         marker.bindPopup(popupContent);
         marker.addTo(markerLayer);
