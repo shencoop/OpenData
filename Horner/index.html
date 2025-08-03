@@ -89,10 +89,10 @@
             let table = '<table><thead><tr><th>重現期\\延時</th>' + dropdownData.durations.map(d => `<th>${d}</th>`).join('') + '</tr></thead><tbody>';
 
             recurSet.forEach(rp => {
-                const row = filtered.find(r => r['重期期距(年)'] == rp);
                 table += '<tr>' +
                     `<td>${rp}</td>` +
                     dropdownData.durations.map(d => {
+                        const row = filtered.find(r => r['重期期距(年)'] == rp && r['延時'] == d);
                         const val = row ? parseFloat(row[d + '_accum']).toFixed(1) : '-';
                         const cls = (rp == recur && d === duration) ? 'highlight' : '';
                         return `<td class="${cls}">${val}</td>`;
