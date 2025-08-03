@@ -96,7 +96,7 @@
       if (point) {
         if (marker) map.removeLayer(marker);
         marker = L.marker([point.lat, point.lon]).addTo(map)
-          .bindPopup(`<b>${point.type}｜${point.road} ${point.mile}</b><br>海拔: ${point.z || '無資料'}m<br>方向: ${point.dir || '無資料'}`)
+          .bindPopup(`<b>${point.type}｜${point.road} ${point.mile}</b><br>海拔: ${point.z || '無資料'}m<br>方向: ${point.dir || '無資料'}<br>座標: X=${point.lon}, Y=${point.lat}`)
           .openPopup();
         map.setView([point.lat, point.lon], 15);
       }
