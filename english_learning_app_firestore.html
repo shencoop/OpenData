@@ -283,6 +283,7 @@
         async function fetchWordsForDay(dayIndex) {
             if (!db || !userId) {
                 console.error("Firestore not initialized or user not authenticated.");
+                hideLoading(); // Hide loading if authentication fails
                 return;
             }
             try {
@@ -335,6 +336,14 @@
 
         // Initialize Firebase and start the app
         document.addEventListener('DOMContentLoaded', async () => {
+            // Check if firebase config is valid first
+            if (!firebaseConfig || Object.keys(firebaseConfig).length === 0) {
+                console.error("Firebase configuration is missing or invalid. Please ensure __firebase_config is set.");
+                userInfo.textContent = "無法載入 (請檢查 Firebase 設定)";
+                hideLoading();
+                return;
+            }
+            
             try {
                 const app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
@@ -361,12 +370,14 @@
                     } else {
                         console.error("Authentication failed. Cannot load data.");
                         userInfo.textContent = "無法載入 (認證失敗)";
+                        hideLoading(); // Hide loading if auth fails
                     }
                 });
 
             } catch (e) {
                 console.error("Error initializing Firebase:", e);
                 userInfo.textContent = "無法載入 (Firebase 錯誤)";
+                hideLoading(); // Hide loading if initialization fails
             }
         });
     </script>
