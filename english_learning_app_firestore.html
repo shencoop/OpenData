@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日英文學習</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f1f5f9;
+        }
+        .word-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .word-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 space-y-6">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold text-sky-600 mb-2">每日英文學習</h1>
+            <p class="text-slate-500 text-lg">每日20個單字與例句，持續累積英語力！</p>
+        </header>
+
+        <!-- User ID display and Loading Indicator -->
+        <div class="flex flex-col items-center justify-center space-y-2 mb-4">
+            <p id="user-info" class="text-sm text-slate-400 text-center">
+                使用者 ID: <span id="user-id">載入中...</span>
+            </p>
+            <div id="loading-indicator" class="text-sky-500 font-semibold" style="display: none;">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-sky-500 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                單字載入中...
+            </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-6">
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="0">Day 1 (旅遊)</button>
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="1">Day 2 (工作)</button>
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="2">Day 3 (日常生活)</button>
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="3">Day 4 (學校)</button>
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="4">Day 5 (健康)</button>
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="5">Day 6 (環境)</button>
+            <button class="day-btn px-4 py-2 rounded-lg font-medium text-sm sm:text-base transition-all duration-200 bg-sky-100 text-sky-800 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50" data-day="6">Day 7 (科技)</button>
+        </div>
+
+        <h2 id="current-day-title" class="text-center text-2xl font-semibold text-sky-700 mb-4"></h2>
+
+        <div id="word-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Word items will be rendered here -->
+        </div>
+
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>&copy; 2024 每日英文學習。所有內容皆為練習用途。</p>
+        </footer>
+
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, onSnapshot, doc, setDoc, query, where, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Global variables provided by the environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // --- Data to be seeded into Firestore ---
+        // 每日單字與例句資料
+        const dailyData = [
+            // Day 1: Travel 旅遊
+            { theme: '旅遊 (Travel)', words: [
+                { word: 'itinerary', translation: '行程', sentence: 'Our travel itinerary includes a visit to the Grand Canyon.' },
+                { word: 'destination', translation: '目的地', sentence: 'The popular destination for tourists this summer is Hawaii.' },
+                { word: 'accommodation', translation: '住宿', sentence: 'We booked our accommodation months in advance to get a good price.' },
+                { word: 'brochure', translation: '手冊', sentence: 'The hotel brochure lists all the services they provide.' },
+                { word: 'souvenir', translation: '紀念品', sentence: 'She bought a small souvenir from every country she visited.' },
+                { word: 'passport', translation: '護照', sentence: 'Please make sure your passport is valid for at least six months.' },
+                { word: 'luggage', translation: '行李', sentence: 'My luggage was lost at the airport, so I had to buy new clothes.' },
+                { word: 'visa', translation: '簽證', sentence: 'He needs a visa to enter the United States.' },
+                { word: 'currency', translation: '貨幣', sentence: 'You should exchange your currency before you travel abroad.' },
+                { word: 'fare', translation: '票價', sentence: 'The bus fare to the city center is two dollars.' },
+                { word: 'adventure', translation: '冒險', sentence: 'Traveling to new places is always a great adventure.' },
+                { word: 'expedition', translation: '遠征', sentence: 'The team planned an expedition to the Amazon rainforest.' },
+                { word: 'commute', translation: '通勤', sentence: 'My daily commute to work takes about an hour.' },
+                { word: 'tourist', translation: '觀光客', sentence: 'A lot of tourists visit this historical landmark every year.' },
+                { word: 'reservation', translation: '預訂', sentence: 'We made a dinner reservation for eight o\'clock.' },
+                { word: 'journey', translation: '旅程', sentence: 'The journey from Taipei to Kaohsiung takes about 90 minutes by high-speed rail.' },
+                { word: 'explorers', translation: '探險家', sentence: 'Explorers discovered a new species of fish in the deep sea.' },
+                { word: 'vacation', translation: '假期', sentence: 'We are planning our family vacation for the summer.' },
+                { word: 'boarding pass', translation: '登機證', sentence: 'You need to show your boarding pass before you get on the plane.' },
+                { word: 'jet lag', translation: '時差', sentence: 'After a long flight, she suffered from severe jet lag.' }
+            ]},
+            // Day 2: Work & Business 工作
+            { theme: '工作 (Work & Business)', words: [
+                { word: 'colleague', translation: '同事', sentence: 'My colleague and I are working on the same project.' },
+                { word: 'deadline', translation: '截止日期', sentence: 'We have a tight deadline to finish this report by Friday.' },
+                { word: 'client', translation: '客戶', sentence: 'The company is hosting a dinner for their most important client.' },
+                { word: 'negotiate', translation: '協商', sentence: 'They are trying to negotiate a new contract with the suppliers.' },
+                { word: 'promotion', translation: '升遷', sentence: 'Hard work and dedication often lead to a promotion.' },
+                { word: 'salary', translation: '薪水', sentence: 'He is asking for a higher salary in his new job.' },
+                { word: 'presentation', translation: '簡報', sentence: 'I have to give a presentation to the whole department tomorrow.' },
+                { word: 'resume', translation: '履歷', sentence: 'Please submit your resume and cover letter for the job opening.' },
+                { word: 'contract', translation: '合約', sentence: 'Make sure you read the contract carefully before you sign it.' },
+                { word: 'manager', translation: '經理', sentence: 'The manager is responsible for leading the team.' },
+                { word: 'corporation', translation: '公司', sentence: 'Many people want to work for a large corporation.' },
+                { word: 'entrepreneur', translation: '企業家', sentence: 'She is an entrepreneur who started her own successful business.' },
+                { word: 'investment', translation: '投資', sentence: 'The company is seeking new investment to expand its operations.' },
+                { word: 'marketing', translation: '行銷', sentence: 'The marketing team is developing a new campaign for the product launch.' },
+                { word: 'conference', translation: '會議', sentence: 'The annual conference will be held in London this year.' },
+                { word: 'portfolio', translation: '作品集', sentence: 'An artist’s portfolio is a collection of their work.' },
+                { word: 'profit', translation: '利潤', sentence: 'The company’s profit has increased by 15% this quarter.' },
+                { word: 'strategy', translation: '策略', sentence: 'The business strategy focuses on attracting younger customers.' },
+                { word: 'revenue', translation: '收入', sentence: 'The new product is expected to generate significant revenue.' },
+                { word: 'workforce', translation: '勞動力', sentence: 'The country’s workforce is highly skilled and educated.' }
+            ]},
+            // Day 3: Daily Life 日常生活
+            { theme: '日常生活 (Daily Life)', words: [
+                { word: 'chore', translation: '家務事', sentence: 'Doing laundry is one of my least favorite household chores.' },
+                { word: 'routine', translation: '例行公事', sentence: 'My morning routine includes jogging and reading the newspaper.' },
+                { word: 'groceries', translation: '雜貨', sentence: 'I need to go to the supermarket to buy some groceries.' },
+                { word: 'appliance', translation: '電器', sentence: 'A microwave oven is a very useful kitchen appliance.' },
+                { word: 'convenience', translation: '方便', sentence: 'The store’s location offers great convenience for local residents.' },
+                { word: 'leisure', translation: '休閒', sentence: 'In my leisure time, I enjoy listening to music and watching movies.' },
+                { word: 'neighborhood', translation: '鄰近地區', sentence: 'Our neighborhood has a lot of friendly people and beautiful parks.' },
+                { word: 'laundry', translation: '洗衣', sentence: 'He does his laundry every Sunday afternoon.' },
+                { word: 'commute', translation: '通勤', sentence: 'My daily commute to work takes about an hour.' },
+                { word: 'errands', translation: '差事', sentence: 'I have to run some errands this afternoon, like going to the bank.' },
+                { word: 'budget', translation: '預算', sentence: 'We need to create a weekly budget to manage our expenses.' },
+                { word: 'household', translation: '家庭', sentence: 'The average household size in the city is three people.' },
+                { word: 'mortgage', translation: '房貸', sentence: 'They are saving money to pay off their mortgage faster.' },
+                { word: 'utility', translation: '公用事業', sentence: 'Utility bills, such as electricity and water, are due at the end of the month.' },
+                { word: 'schedule', translation: '行程表', sentence: 'I need to check my schedule to see if I am free tomorrow.' },
+                { word: 'bill', translation: '帳單', sentence: 'I forgot to pay my phone bill this month.' },
+                { word: 'subscription', translation: '訂閱', sentence: 'My Netflix subscription renews automatically every month.' },
+                { word: 'receipt', translation: '收據', sentence: 'Keep the receipt in case you need to return the item.' },
+                { word: 'discount', translation: '折扣', sentence: 'I got a discount on the new shoes because of a special promotion.' },
+                { word: 'payment', translation: '付款', sentence: 'The payment for the order can be made online or in cash.' }
+            ]},
+            // Day 4: School & Study 學校 & 學習
+            { theme: '學校 & 學習 (School & Study)', words: [
+                { word: 'curriculum', translation: '課程', sentence: 'The school’s curriculum includes art, music, and science.' },
+                { word: 'semester', translation: '學期', sentence: 'This is my final semester before I graduate.' },
+                { word: 'assignment', translation: '作業', sentence: 'The teacher gave us a long assignment to complete over the weekend.' },
+                { word: 'lecture', translation: '講座', sentence: 'The professor will give a lecture on ancient history this morning.' },
+                { word: 'thesis', translation: '論文', sentence: 'He is working hard on his master’s thesis.' },
+                { word: 'scholarship', translation: '獎學金', sentence: 'She received a scholarship to study at a prestigious university.' },
+                { word: 'syllabus', translation: '課程大綱', sentence: 'The syllabus outlines all the topics we will cover in the class.' },
+                { word: 'graduation', translation: '畢業', sentence: 'My older brother is attending his graduation ceremony next month.' },
+                { word: 'tuition', translation: '學費', sentence: 'University tuition has increased significantly over the last decade.' },
+                { word: 'procrastinate', translation: '拖延', sentence: 'I tend to procrastinate when I have a difficult task to do.' },
+                { word: 'plagiarism', translation: '抄襲', sentence: 'Plagiarism is a serious offense in academic writing.' },
+                { word: 'mentor', translation: '導師', sentence: 'My mentor helped me choose the right path for my career.' },
+                { word: 'seminar', translation: '研討會', sentence: 'The research seminar was attended by experts from all over the world.' },
+                { word: 'discipline', translation: '學科', sentence: 'Physics is a difficult but rewarding academic discipline.' },
+                { word: 'extracurricular', translation: '課外活動', sentence: 'He participates in several extracurricular activities, like sports and music.' },
+                { word: 'assessment', translation: '評估', sentence: 'The final assessment for the course is based on a research paper.' },
+                { word: 'criteria', translation: '標準', sentence: 'The project will be judged based on specific criteria.' },
+                { word: 'workshop', translation: '工作坊', sentence: 'The art workshop taught me how to use watercolors.' },
+                { word: 'internship', translation: '實習', sentence: 'She got a summer internship at a technology company.' },
+                { word: 'alumni', translation: '校友', sentence: 'The university is hosting a reunion for its alumni.' }
+            ]},
+            // Day 5: Health 健康
+            { theme: '健康 (Health)', words: [
+                { word: 'nutrition', translation: '營養', sentence: 'Good nutrition is essential for a healthy body.' },
+                { word: 'symptom', translation: '症狀', sentence: 'Fever and a sore throat are common symptoms of the flu.' },
+                { word: 'prescription', translation: '處方', sentence: 'You need a prescription from your doctor to get this medicine.' },
+                { word: 'diagnose', translation: '診斷', sentence: 'The doctor diagnosed her with a common cold.' },
+                { word: 'therapy', translation: '治療', sentence: 'Physical therapy helped him recover from his injury.' },
+                { word: 'immune system', translation: '免疫系統', sentence: 'Eating well and exercising can strengthen your immune system.' },
+                { word: 'medication', translation: '藥物', sentence: 'Please take your medication twice a day as instructed.' },
+                { word: 'allergies', translation: '過敏', sentence: 'She has severe allergies to nuts and shellfish.' },
+                { word: 'vaccine', translation: '疫苗', sentence: 'The flu vaccine can help prevent the spread of the virus.' },
+                { word: 'chronic', translation: '慢性的', sentence: 'He suffers from chronic back pain, which is a long-term problem.' },
+                { word: 'sanitation', translation: '衛生', sentence: 'Proper sanitation is important to prevent diseases.' },
+                { word: 'epidemic', translation: '流行病', sentence: 'The government is working hard to control the epidemic.' },
+                { word: 'wellness', translation: '健康', sentence: 'The company promotes employee wellness through a gym membership.' },
+                { word: 'hygiene', translation: '衛生', sentence: 'Good personal hygiene, like washing hands, is important.' },
+                { word: 'fitness', translation: '健康狀態', sentence: 'Regular exercise is key to maintaining a high level of fitness.' },
+                { word: 'calories', translation: '卡路里', sentence: 'You should try to count the calories in the food you eat.' },
+                { word: 'diet', translation: '飲食', sentence: 'A balanced diet includes fruits, vegetables, and protein.' },
+                { word: 'cardiovascular', translation: '心血管的', sentence: 'Cardiovascular exercise, like running, is good for your heart.' },
+                { word: 'rehabilitation', translation: '復健', sentence: 'He is undergoing rehabilitation to regain strength in his leg.' },
+                { word: 'holistic', translation: '整體的', sentence: 'Holistic medicine treats the entire person, not just the disease.' }
+            ]},
+            // Day 6: Environment & Nature 環境
+            { theme: '環境 (Environment & Nature)', words: [
+                { word: 'ecosystem', translation: '生態系統', sentence: 'The Amazon rainforest is a complex and important ecosystem.' },
+                { word: 'conservation', translation: '保育', sentence: 'Wildlife conservation is necessary to protect endangered species.' },
+                { word: 'pollution', translation: '污染', sentence: 'Air pollution is a major problem in big cities.' },
+                { word: 'biodiversity', translation: '生物多樣性', sentence: 'Protecting biodiversity is crucial for the health of our planet.' },
+                { word: 'sustainability', translation: '永續性', sentence: 'The company is committed to environmental sustainability.' },
+                { word: 'climate change', translation: '氣候變遷', sentence: 'Climate change is causing more extreme weather events.' },
+                { word: 'extinction', translation: '滅絕', sentence: 'The dodo bird is a famous example of extinction caused by humans.' },
+                { word: 'habitat', translation: '棲息地', sentence: 'The destruction of habitats is threatening many animal species.' },
+                { word: 'renewable energy', translation: '再生能源', sentence: 'Solar and wind power are examples of renewable energy.' },
+                { word: 'deforestation', translation: '濫伐森林', sentence: 'Deforestation is a major contributor to global warming.' },
+                { word: 'emissions', translation: '排放', sentence: 'Governments are working to reduce carbon emissions from vehicles.' },
+                { word: 'recycle', translation: '回收', sentence: 'Remember to recycle plastic bottles and paper to help the environment.' },
+                { word: 'compost', translation: '堆肥', sentence: 'You can compost food scraps to create rich soil for your garden.' },
+                { word: 'landfill', translation: '垃圾掩埋場', sentence: 'Most of our trash ends up in a huge landfill outside the city.' },
+                { word: 'endangered', translation: '瀕危的', sentence: 'The giant panda is an endangered species.' },
+                { word: 'natural resources', translation: '自然資源', sentence: 'We need to use our natural resources responsibly.' },
+                { word: 'glacier', translation: '冰川', sentence: 'Glaciers are melting rapidly due to rising global temperatures.' },
+                { word: 'organism', translation: '有機體', sentence: 'A single-celled organism is a living creature made of one cell.' },
+                { word: 'desertification', translation: '沙漠化', sentence: 'Poor farming practices can lead to desertification.' },
+                { word: 'ecosystem', translation: '生態系統', sentence: 'The coral reef is a fragile and beautiful ecosystem.' }
+            ]},
+            // Day 7: Technology 科技
+            { theme: '科技 (Technology)', words: [
+                { word: 'innovation', translation: '創新', sentence: 'The company is known for its technological innovation.' },
+                { word: 'algorithm', translation: '演算法', sentence: 'The search engine uses a complex algorithm to rank websites.' },
+                { word: 'digital', translation: '數位的', sentence: 'The world is moving towards a more digital economy.' },
+                { word: 'artificial intelligence', translation: '人工智慧', sentence: 'Artificial intelligence is changing the way we live and work.' },
+                { word: 'software', translation: '軟體', sentence: 'You need to install the new software update to use the program.' },
+                { word: 'hardware', translation: '硬體', sentence: 'The computer hardware includes the monitor, keyboard, and mouse.' },
+                { word: 'data', translation: '資料', sentence: 'The company collects a lot of data about its customers.' },
+                { word: 'network', translation: '網路', sentence: 'The computer network is down, so we can’t access the internet.' },
+                { word: 'virtual reality', translation: '虛擬實境', sentence: 'Virtual reality allows you to experience a new world.' },
+                { word: 'robotics', translation: '機器人學', sentence: 'Robotics is a field of engineering that deals with robots.' },
+                { word: 'automation', translation: '自動化', sentence: 'The new factory uses automation to increase productivity.' },
+                { word: 'cybersecurity', translation: '網路安全', sentence: 'Cybersecurity is a major concern for all online businesses.' },
+                { word: 'interface', translation: '介面', sentence: 'The user interface of the new app is very simple and clean.' },
+                { word: 'server', translation: '伺服器', sentence: 'The website’s server crashed, and no one could access the page.' },
+                { word: 'cryptocurrency', translation: '加密貨幣', sentence: 'Bitcoin and Ethereum are well-known examples of cryptocurrency.' },
+                { word: 'cloud computing', translation: '雲端運算', sentence: 'Cloud computing allows us to access data from any device.' },
+                { word: 'application', translation: '應用程式', sentence: 'I downloaded a new application on my phone for photo editing.' },
+                { word: 'platform', translation: '平台', sentence: 'Social media is a platform for people to share their thoughts.' },
+                { word: 'innovation', translation: '創新', sentence: 'The startup is focused on innovation in mobile technology.' },
+                { word: 'developer', translation: '開發人員', sentence: 'A software developer creates and maintains programs.' }
+            ]}
+        ];
+
+        // Global Firebase instances
+        let db, auth, userId;
+
+        // HTML elements
+        const wordListContainer = document.getElementById('word-list');
+        const currentDayTitle = document.getElementById('current-day-title');
+        const dayButtons = document.querySelectorAll('.day-btn');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const userInfo = document.getElementById('user-id');
+
+        // Function to render the words from the database
+        function renderDailyContent(data) {
+            wordListContainer.innerHTML = ''; // Clear previous content
+            data.forEach(item => {
+                const wordItem = document.createElement('div');
+                wordItem.className = 'word-item bg-white p-4 rounded-lg shadow-md';
+                wordItem.innerHTML = `
+                    <p class="text-xl font-bold text-slate-700">${item.word}</p>
+                    <p class="text-slate-500 mt-1">${item.translation}</p>
+                    <p class="text-sm italic text-slate-400 mt-2">${item.sentence}</p>
+                `;
+                wordListContainer.appendChild(wordItem);
+            });
+        }
+
+        // Add click event listeners to the day buttons
+        dayButtons.forEach((button, index) => {
+            button.addEventListener('click', async () => {
+                showLoading();
+                dayButtons.forEach(btn => btn.classList.remove('bg-sky-500', 'text-white'));
+                button.classList.add('bg-sky-500', 'text-white');
+                currentDayTitle.textContent = dailyData[index].theme;
+                await fetchWordsForDay(index);
+            });
+        });
+
+        // Function to fetch words from Firestore
+        async function fetchWordsForDay(dayIndex) {
+            if (!db || !userId) {
+                console.error("Firestore not initialized or user not authenticated.");
+                return;
+            }
+            try {
+                const q = query(collection(db, `/artifacts/${appId}/users/${userId}/vocabulary`), where("dayIndex", "==", dayIndex));
+                onSnapshot(q, (querySnapshot) => {
+                    const words = [];
+                    querySnapshot.forEach((doc) => {
+                        words.push(doc.data());
+                    });
+                    renderDailyContent(words);
+                    hideLoading();
+                });
+            } catch (e) {
+                console.error("Error fetching words: ", e);
+                hideLoading();
+            }
+        }
+
+        // Seed initial data into Firestore if it doesn't exist
+        async function seedDataIfEmpty() {
+            if (!db || !userId) return;
+            const q = query(collection(db, `/artifacts/${appId}/users/${userId}/vocabulary`));
+            const querySnapshot = await getDocs(q);
+            if (querySnapshot.empty) {
+                console.log("Database is empty, seeding initial data...");
+                for (let i = 0; i < dailyData.length; i++) {
+                    for (let j = 0; j < dailyData[i].words.length; j++) {
+                        const wordDoc = {
+                            dayIndex: i,
+                            word: dailyData[i].words[j].word,
+                            translation: dailyData[i].words[j].translation,
+                            sentence: dailyData[i].words[j].sentence
+                        };
+                        const docRef = doc(db, `/artifacts/${appId}/users/${userId}/vocabulary/${i}-${j}`);
+                        await setDoc(docRef, wordDoc);
+                    }
+                }
+                console.log("Initial data seeding complete.");
+            }
+        }
+
+        function showLoading() {
+            loadingIndicator.style.display = 'block';
+            wordListContainer.innerHTML = '';
+        }
+
+        function hideLoading() {
+            loadingIndicator.style.display = 'none';
+        }
+
+        // Initialize Firebase and start the app
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                auth.onAuthStateChanged(async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        userInfo.textContent = userId;
+                        await seedDataIfEmpty();
+                        
+                        // Load today's words by default
+                        const today = new Date().getDay();
+                        const dayIndex = today === 0 ? 6 : today - 1;
+                        dayButtons[dayIndex].classList.add('bg-sky-500', 'text-white');
+                        currentDayTitle.textContent = dailyData[dayIndex].theme;
+                        await fetchWordsForDay(dayIndex);
+                    } else {
+                        console.error("Authentication failed. Cannot load data.");
+                        userInfo.textContent = "無法載入 (認證失敗)";
+                    }
+                });
+
+            } catch (e) {
+                console.error("Error initializing Firebase:", e);
+                userInfo.textContent = "無法載入 (Firebase 錯誤)";
+            }
+        });
+    </script>
+</body>
+</html>
