@@ -9,7 +9,7 @@
     font-family: 'Segoe UI', sans-serif;
     background: #f8f9fa;
     padding: 2rem;
-    max-width: 700px;
+    max-width: 720px;
     margin: auto;
   }
   h2 {
@@ -46,11 +46,27 @@
   .actions button {
     flex: 1;
   }
+  .tip {
+    background: #fff3cd;
+    border: 1px solid #ffe69c;
+    color: #8a6d3b;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
 </style>
 </head>
 <body>
-  <h2>🎥 立法院 IVOD 影片擷取工具</h2>
-  <p>貼上 <code>ivod.ly.gov.tw</code> 的影片網址，擷取對應的 <code>.m3u8</code> 串流連結與 <code>ffmpeg</code> 下載指令，並可轉換為 <code>.mp3</code> 錄音格式方便進行逐字稿。</p>
+  <h2>🎥 立法院 IVOD 影片擷取工具（含多代理與 MP3 轉換）</h2>
+  <div class="tip">
+    ⚠️ 若出現 <b>ERR_QUIC_PROTOCOL_ERROR</b> 或 <b>Failed to fetch</b>：<br>
+    1️⃣ 請停用瀏覽器的 QUIC 協定（<code>chrome://flags/#enable-quic</code> 設為 Disabled）。<br>
+    2️⃣ 或改用本機伺服器開啟本頁（例：<code>python -m http.server 5500</code>）。<br>
+    3️⃣ 程式內含多代理自動切換機制，會嘗試不同 API 提供來源。  
+  </div>
+
+  <p>貼上 <code>ivod.ly.gov.tw</code> 的影片網址，系統會擷取對應的 <code>.m3u8</code> 串流連結，並產生 <code>ffmpeg</code> 指令，可下載 MP4 或轉換為 MP3 錄音檔。</p>
+
   <input id="url" type="text" placeholder="例如：https://ivod.ly.gov.tw/Play/Clip/1M/163842" />
   <div class="actions">
     <button onclick="extract()">擷取影片連結</button>
@@ -59,15 +75,37 @@
   <pre id="output">等待輸入網址...</pre>
   <div class="actions" id="extraButtons" style="display:none">
     <button onclick="copyLink()">📋 複製 m3u8 連結</button>
-    <button onclick="copyCommand()">💻 複製 ffmpeg 指令</button>
-    <button onclick="downloadVideo()">⬇️ 下載影片</button>
-    <button onclick="copyAudioCommand()">🎧 轉換為 MP3</button>
+    <button onclick="copyCommand()">💻 複製 MP4 下載指令</button>
+    <button onclick="copyAudioCommand()">🎧 複製 MP3 轉檔指令</button>
+    <button onclick="downloadVideo()">⬇️ 直接開啟影片</button>
   </div>
 
   <script>
     let currentM3u8 = '';
     let currentCmd = '';
     let currentAudioCmd = '';
+
+    // 多代理來源設定
+    const PROXIES = [
+      (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+      (url) => `https://thingproxy.freeboard.io/fetch/${url}`,
+      (url) => `https://cors.isomorphic-git.org/${url}`,
+      (url) => `https://r.jina.ai/http://${url.replace(/^https?:\\/\\//, '')}`
+    ];
+
+    async function tryProxies(url) {
+      for (const build of PROXIES) {
+        try {
+          const resp = await fetch(build(url));
+          if (!resp.ok) continue;
+          const text = await resp.text();
+          if (text.includes('.m3u8')) return text;
+        } catch (err) {
+          // 繼續嘗試下一個代理
+        }
+      }
+      throw new Error('所有代理皆失敗或無法存取影片內容。');
+    }
 
     async function extract() {
       const url = document.getElementById('url').value.trim();
@@ -77,28 +115,23 @@
         output.textContent = '⚠️ 請先輸入網址';
         return;
       }
-      output.textContent = '⏳ 正在擷取中，請稍候...';
+      output.textContent = '⏳ 正在擷取中（多代理中...）';
       extraButtons.style.display = 'none';
+
       try {
-        const proxyCandidates = [
-          `https://thingproxy.freeboard.io/fetch/${url}`,
-          `https://cors.isomorphic-git.org/${url}`,
-          `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
-        ];
-        const resp = await fetch(proxyUrl);
-        const data = await resp.json();
-        const match = data.contents.match(/https[^\"']+\.m3u8/g);
+        const text = await tryProxies(url);
+        const match = text.match(/https[^\"']+\.m3u8/g);
         if (match && match.length > 0) {
           currentM3u8 = match[0];
           currentCmd = `ffmpeg -i \"${currentM3u8}\" -c copy output.mp4`;
           currentAudioCmd = `ffmpeg -i \"${currentM3u8}\" -vn -acodec libmp3lame -ab 192k output.mp3`;
-          output.textContent = `✅ 找到影片串流：\n${currentM3u8}\n\n💻 影片下載指令：\n${currentCmd}\n\n🎧 音訊轉檔指令：\n${currentAudioCmd}`;
+          output.textContent = `✅ 找到影片串流：\n${currentM3u8}\n\n💻 MP4 下載指令：\n${currentCmd}\n\n🎧 MP3 轉檔指令：\n${currentAudioCmd}`;
           extraButtons.style.display = 'flex';
         } else {
           output.textContent = '❌ 未找到 .m3u8 串流連結，可能該頁影片未開放或格式不同。';
         }
       } catch (err) {
-        output.textContent = '❌ 擷取時發生錯誤：' + err.message;
+        output.textContent = `❌ 擷取時發生錯誤：${err.message}`;
       }
     }
 
@@ -109,12 +142,12 @@
 
     function copyCommand() {
       if (currentCmd) navigator.clipboard.writeText(currentCmd);
-      alert('✅ 已複製 ffmpeg 指令');
+      alert('✅ 已複製 MP4 ffmpeg 指令');
     }
 
     function copyAudioCommand() {
       if (currentAudioCmd) navigator.clipboard.writeText(currentAudioCmd);
-      alert('✅ 已複製轉 MP3 指令');
+      alert('✅ 已複製 MP3 轉檔指令');
     }
 
     function downloadVideo() {
