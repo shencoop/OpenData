@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>立法院 IVOD 影片擷取工具</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f9fa;
+    padding: 2rem;
+    max-width: 700px;
+    margin: auto;
+  }
+  h2 {
+    color: #0d6efd;
+  }
+  input, button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  button {
+    background: #0d6efd;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #0b5ed7;
+  }
+  pre {
+    background: #f1f3f5;
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .actions button {
+    flex: 1;
+  }
+</style>
+</head>
+<body>
+  <h2>🎥 立法院 IVOD 影片擷取工具</h2>
+  <p>貼上 <code>ivod.ly.gov.tw</code> 的影片網址，擷取對應的 <code>.m3u8</code> 串流連結與 <code>ffmpeg</code> 下載指令，並可轉換為 <code>.mp3</code> 錄音格式方便進行逐字稿。</p>
+  <input id="url" type="text" placeholder="例如：https://ivod.ly.gov.tw/Play/Clip/1M/163842" />
+  <div class="actions">
+    <button onclick="extract()">擷取影片連結</button>
+    <button onclick="clearOutput()">清除結果</button>
+  </div>
+  <pre id="output">等待輸入網址...</pre>
+  <div class="actions" id="extraButtons" style="display:none">
+    <button onclick="copyLink()">📋 複製 m3u8 連結</button>
+    <button onclick="copyCommand()">💻 複製 ffmpeg 指令</button>
+    <button onclick="downloadVideo()">⬇️ 下載影片</button>
+    <button onclick="copyAudioCommand()">🎧 轉換為 MP3</button>
+  </div>
+
+  <script>
+    let currentM3u8 = '';
+    let currentCmd = '';
+    let currentAudioCmd = '';
+
+    async function extract() {
+      const url = document.getElementById('url').value.trim();
+      const output = document.getElementById('output');
+      const extraButtons = document.getElementById('extraButtons');
+      if (!url) {
+        output.textContent = '⚠️ 請先輸入網址';
+        return;
+      }
+      output.textContent = '⏳ 正在擷取中，請稍候...';
+      extraButtons.style.display = 'none';
+      try {
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+        const resp = await fetch(proxyUrl);
+        const data = await resp.json();
+        const match = data.contents.match(/https[^\"']+\.m3u8/g);
+        if (match && match.length > 0) {
+          currentM3u8 = match[0];
+          currentCmd = `ffmpeg -i \"${currentM3u8}\" -c copy output.mp4`;
+          currentAudioCmd = `ffmpeg -i \"${currentM3u8}\" -vn -acodec libmp3lame -ab 192k output.mp3`;
+          output.textContent = `✅ 找到影片串流：\n${currentM3u8}\n\n💻 影片下載指令：\n${currentCmd}\n\n🎧 音訊轉檔指令：\n${currentAudioCmd}`;
+          extraButtons.style.display = 'flex';
+        } else {
+          output.textContent = '❌ 未找到 .m3u8 串流連結，可能該頁影片未開放或格式不同。';
+        }
+      } catch (err) {
+        output.textContent = '❌ 擷取時發生錯誤：' + err.message;
+      }
+    }
+
+    function copyLink() {
+      if (currentM3u8) navigator.clipboard.writeText(currentM3u8);
+      alert('✅ 已複製 m3u8 連結');
+    }
+
+    function copyCommand() {
+      if (currentCmd) navigator.clipboard.writeText(currentCmd);
+      alert('✅ 已複製 ffmpeg 指令');
+    }
+
+    function copyAudioCommand() {
+      if (currentAudioCmd) navigator.clipboard.writeText(currentAudioCmd);
+      alert('✅ 已複製轉 MP3 指令');
+    }
+
+    function downloadVideo() {
+      if (currentM3u8) window.open(currentM3u8, '_blank');
+    }
+
+    function clearOutput() {
+      document.getElementById('output').textContent = '等待輸入網址...';
+      document.getElementById('extraButtons').style.display = 'none';
+      currentM3u8 = '';
+      currentCmd = '';
+      currentAudioCmd = '';
+    }
+  </script>
+</body>
+</html>
