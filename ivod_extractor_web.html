@@ -80,7 +80,11 @@
       output.textContent = '⏳ 正在擷取中，請稍候...';
       extraButtons.style.display = 'none';
       try {
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+        const proxyCandidates = [
+          `https://thingproxy.freeboard.io/fetch/${url}`,
+          `https://cors.isomorphic-git.org/${url}`,
+          `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
+        ];
         const resp = await fetch(proxyUrl);
         const data = await resp.json();
         const match = data.contents.match(/https[^\"']+\.m3u8/g);
