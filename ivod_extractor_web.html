@@ -74,7 +74,7 @@
       (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
       (url) => `https://thingproxy.freeboard.io/fetch/${url}`,
       (url) => `https://cors.isomorphic-git.org/${url}`,
-      (url) => `https://r.jina.ai/http://${url.replace(/^https?:\\/\\//, '')}`
+      (url) => `https://r.jina.ai/http://${url.replace(/^https?:\/\//, '')}`
     ];
 
     async function tryProxies(url) {
