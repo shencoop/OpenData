@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>立法院 IVOD 影片擷取工具</title>
+<title>立法院 IVOD 影片擷取工具（穩定版）</title>
 <style>
   body {
     font-family: 'Segoe UI', sans-serif;
@@ -12,9 +12,7 @@
     max-width: 720px;
     margin: auto;
   }
-  h2 {
-    color: #0d6efd;
-  }
+  h2 { color: #0d6efd; }
   input, button {
     width: 100%;
     padding: 0.75rem;
@@ -23,15 +21,8 @@
     border-radius: 8px;
     border: 1px solid #ccc;
   }
-  button {
-    background: #0d6efd;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #0b5ed7;
-  }
+  button { background: #0d6efd; color: white; border: none; cursor: pointer; }
+  button:hover { background: #0b5ed7; }
   pre {
     background: #f1f3f5;
     padding: 1rem;
@@ -39,13 +30,8 @@
     white-space: pre-wrap;
     word-break: break-all;
   }
-  .actions {
-    display: flex;
-    gap: 0.5rem;
-  }
-  .actions button {
-    flex: 1;
-  }
+  .actions { display: flex; gap: 0.5rem; }
+  .actions button { flex: 1; }
   .tip {
     background: #fff3cd;
     border: 1px solid #ffe69c;
@@ -57,35 +43,33 @@
 </style>
 </head>
 <body>
-  <h2>🎥 立法院 IVOD 影片擷取工具（含多代理與 MP3 轉換）</h2>
+  <h2>🎥 立法院 IVOD 影片擷取工具（穩定版）</h2>
   <div class="tip">
     ⚠️ 若出現 <b>ERR_QUIC_PROTOCOL_ERROR</b> 或 <b>Failed to fetch</b>：<br>
-    1️⃣ 請停用瀏覽器的 QUIC 協定（<code>chrome://flags/#enable-quic</code> 設為 Disabled）。<br>
-    2️⃣ 或改用本機伺服器開啟本頁（例：<code>python -m http.server 5500</code>）。<br>
-    3️⃣ 程式內含多代理自動切換機制，會嘗試不同 API 提供來源。  
+    1️⃣ 停用 QUIC（<code>chrome://flags/#enable-quic</code> → Disabled）<br>
+    2️⃣ 改用本機伺服器開啟本頁（例：<code>python -m http.server 5500</code>）<br>
+    3️⃣ 本工具內含多代理切換機制，可自動嘗試不同 API 來源
   </div>
-
-  <p>貼上 <code>ivod.ly.gov.tw</code> 的影片網址，系統會擷取對應的 <code>.m3u8</code> 串流連結，並產生 <code>ffmpeg</code> 指令，可下載 MP4 或轉換為 MP3 錄音檔。</p>
 
   <input id="url" type="text" placeholder="例如：https://ivod.ly.gov.tw/Play/Clip/1M/163842" />
   <div class="actions">
-    <button onclick="extract()">擷取影片連結</button>
-    <button onclick="clearOutput()">清除結果</button>
+    <button id="extractBtn">擷取影片連結</button>
+    <button id="clearBtn">清除結果</button>
   </div>
+
   <pre id="output">等待輸入網址...</pre>
   <div class="actions" id="extraButtons" style="display:none">
-    <button onclick="copyLink()">📋 複製 m3u8 連結</button>
-    <button onclick="copyCommand()">💻 複製 MP4 下載指令</button>
-    <button onclick="copyAudioCommand()">🎧 複製 MP3 轉檔指令</button>
-    <button onclick="downloadVideo()">⬇️ 直接開啟影片</button>
+    <button id="copyLinkBtn">📋 複製 m3u8 連結</button>
+    <button id="copyCmdBtn">💻 複製 MP4 下載指令</button>
+    <button id="copyAudioBtn">🎧 複製 MP3 轉檔指令</button>
+    <button id="openVideoBtn">⬇️ 直接開啟影片</button>
   </div>
 
-  <script>
-    let currentM3u8 = '';
-    let currentCmd = '';
-    let currentAudioCmd = '';
+  <script type="text/javascript">
+    console.log('✅ extract script loaded');
 
-    // 多代理來源設定
+    let currentM3u8 = '', currentCmd = '', currentAudioCmd = '';
+
     const PROXIES = [
       (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
       (url) => `https://thingproxy.freeboard.io/fetch/${url}`,
@@ -100,9 +84,7 @@
           if (!resp.ok) continue;
           const text = await resp.text();
           if (text.includes('.m3u8')) return text;
-        } catch (err) {
-          // 繼續嘗試下一個代理
-        }
+        } catch (err) { continue; }
       }
       throw new Error('所有代理皆失敗或無法存取影片內容。');
     }
@@ -111,10 +93,7 @@
       const url = document.getElementById('url').value.trim();
       const output = document.getElementById('output');
       const extraButtons = document.getElementById('extraButtons');
-      if (!url) {
-        output.textContent = '⚠️ 請先輸入網址';
-        return;
-      }
+      if (!url) { output.textContent = '⚠️ 請先輸入網址'; return; }
       output.textContent = '⏳ 正在擷取中（多代理中...）';
       extraButtons.style.display = 'none';
 
@@ -133,6 +112,12 @@
       } catch (err) {
         output.textContent = `❌ 擷取時發生錯誤：${err.message}`;
       }
+    }
+
+    function clearOutput() {
+      document.getElementById('output').textContent = '等待輸入網址...';
+      document.getElementById('extraButtons').style.display = 'none';
+      currentM3u8 = currentCmd = currentAudioCmd = '';
     }
 
     function copyLink() {
@@ -154,13 +139,13 @@
       if (currentM3u8) window.open(currentM3u8, '_blank');
     }
 
-    function clearOutput() {
-      document.getElementById('output').textContent = '等待輸入網址...';
-      document.getElementById('extraButtons').style.display = 'none';
-      currentM3u8 = '';
-      currentCmd = '';
-      currentAudioCmd = '';
-    }
+    // 綁定按鈕事件
+    document.getElementById('extractBtn').addEventListener('click', extract);
+    document.getElementById('clearBtn').addEventListener('click', clearOutput);
+    document.getElementById('copyLinkBtn').addEventListener('click', copyLink);
+    document.getElementById('copyCmdBtn').addEventListener('click', copyCommand);
+    document.getElementById('copyAudioBtn').addEventListener('click', copyAudioCommand);
+    document.getElementById('openVideoBtn').addEventListener('click', downloadVideo);
   </script>
 </body>
 </html>
