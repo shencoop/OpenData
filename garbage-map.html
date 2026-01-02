@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>臺中市垃圾車動態地圖</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+    .leaflet-popup-content {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script>
+    // ① API URL（就是你貼的那個）
+    const API_URL = "https://datacenter.taichung.gov.tw/swagger/OpenData/c923ad20-2ec6-43b9-b3ab-54527e99f7bc";
+
+    // ② 初始化地圖（中心大概放在台中市）
+    const map = L.map("map").setView([24.15, 120.67], 12);
+
+    // ③ 加入底圖（OpenStreetMap）
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
+
+    // ④ 用一個物件記住每台車的 marker，方便更新位置
+    const truckMarkers = {};
+
+    // ⑤ 將一筆資料轉成 marker
+    function upsertTruckMarker(record) {
+      // 依照實際欄位名稱調整；這裡假設 JSON 長這樣：
+      // { "lineid": "...", "car": "...", "time": "...", "location": "...", "X": 120.67, "Y": 24.15, ... }
+
+      const car = record.car || "未知車牌";
+      const time = record.time || "";
+      const location = record.location || "";
+      const x = Number(record.X);
+      const y = Number(record.Y);
+
+      // ▼ 情況一：如果 X/Y 已經是經緯度（120.x / 24.x）就直接用
+      const lng = x;
+      const lat = y;
+
+      // ▼ 如果你發現 X/Y 是很大的數字（例如 200000、2600000），代表是平面座標，
+      //    就需要先用 proj4 轉成 WGS84；那時候這裡要改寫成轉換後的 lat/lng。
+
+      if (isNaN(lat) || isNaN(lng)) return;
+
+      const popupHtml = `
+        <div>
+          <b>車牌：</b>${car}<br/>
+          <b>最近回報時間：</b>${time}<br/>
+          <b>位置描述：</b>${location}<br/>
+          <b>X：</b>${record.X}　<b>Y：</b>${record.Y}<br/>
+          <b>車速：</b>${record.SpeedValue ?? ""} km/h
+          ${record.OverSpeed ? "<br/><b style='color:red;'>超速警示</b>" : ""}
+        </div>
+      `;
+
+      if (truckMarkers[car]) {
+        // 已存在 → 更新位置與 popup
+        truckMarkers[car].setLatLng([lat, lng]).setPopupContent(popupHtml);
+      } else {
+        // 不存在 → 新增一個 marker
+        const marker = L.marker([lat, lng]).addTo(map);
+        marker.bindPopup(popupHtml);
+        truckMarkers[car] = marker;
+      }
+    }
+
+    // ⑥ 抓 API 資料並更新地圖
+    async function fetchAndUpdate() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) {
+          console.error("API 回應錯誤：" + res.status);
+          return;
+        }
+
+        const data = await res.json();
+        console.log("收到資料筆數：", Array.isArray(data) ? data.length : data);
+
+        if (!Array.isArray(data)) {
+          console.error("資料格式不是陣列，請檢查 API 回傳內容");
+          return;
+        }
+
+        data.forEach(upsertTruckMarker);
+      } catch (err) {
+        console.error("抓取或解析 API 資料失敗：", err);
+      }
+    }
+
+    // ⑦ 先抓一次
+    fetchAndUpdate();
+
+    // ⑧ 每 30 秒更新一次（可以依照需求改成 10 分鐘或更短）
+    setInterval(fetchAndUpdate, 30 * 1000);
+  </script>
+</body>
+</html>
