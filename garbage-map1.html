@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>臺中市垃圾車動態地圖</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+    .meta {
+      position: absolute; z-index: 999; left: 10px; top: 10px;
+      background: rgba(255,255,255,.9); padding: 10px 12px; border-radius: 10px;
+      font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Arial;
+      box-shadow: 0 4px 16px rgba(0,0,0,.12);
+      max-width: 360px;
+    }
+    .meta code { font-size: 12px; }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <div class="meta">
+    <div><b>臺中市垃圾車動態地圖</b></div>
+    <div>資料來源：<code>newdatacenter.taichung.gov.tw</code></div>
+    <div id="status">初始化中…</div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- proj4（用來把 TWD97 平面座標轉成 WGS84 經緯度） -->
+  <script src="https://unpkg.com/proj4@2.11.0/dist/proj4.js"></script>
+
+  <script>
+    // ① 你的 API（JSON）
+    const API_URL = "https://newdatacenter.taichung.gov.tw/api/v1/no-auth/resource.download?rid=c923ad20-2ec6-43b9-b3ab-54527e99f7bc";
+
+    // ② 更新頻率（你可改成 60*1000、5*60*1000 等）
+    const REFRESH_MS = 30 * 1000;
+
+    // ③ 地圖初始化（台中市）
+    const map = L.map("map").setView([24.15, 120.67], 12);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
+
+    const statusEl = document.getElementById("status");
+
+    // ④ marker 快取：用 car/車牌 當 key（同車更新位置）
+    const markersByCar = Object.create(null);
+
+    // --- 座標轉換：TWD97 TM2（EPSG:3826） -> WGS84（EPSG:4326）
+    // 這組參數是常見的 TWD97 二度分帶（121）設定（多數政府 TM2 97 使用這個）
+    proj4.defs("EPSG:3826",
+      "+proj=tmerc +lat_0=0 +lon_0=121 +k=0.9999 +x_0=250000 +y_0=0 +ellps=GRS80 +units=m +no_defs"
+    );
+
+    function looksLikeLonLat(x, y) {
+      // 台中大約 lon 120.x / lat 24.x
+      return (x > 118 && x < 123 && y > 21 && y < 26);
+    }
+
+    function toLatLng(record) {
+      // 你這份資料欄位通常叫 X/Y（大小寫可能不同），這裡做容錯
+      const xRaw = record.X ?? record.x ?? record.lon ?? record.lng;
+      const yRaw = record.Y ?? record.y ?? record.lat;
+
+      const x = Number(xRaw);
+      const y = Number(yRaw);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+
+      // 情況 A：已經是經緯度
+      if (looksLikeLonLat(x, y)) {
+        return { lat: y, lng: x, crs: "WGS84(lon/lat)" };
+      }
+
+      // 情況 B：推測是平面座標（TWD97 TM2）
+      // proj4(from, to, [x,y]) 回傳 [lon, lat]
+      try {
+        const [lon, lat] = proj4("EPSG:3826", "WGS84", [x, y]);
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+        return { lat, lng: lon, crs: "TWD97 TM2 -> WGS84" };
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function popupHtml(r, latlngInfo) {
+      const car = r.car ?? r.CAR ?? "未知";
+      const lineid = r.lineid ?? r.LINEID ?? "";
+      const time = r.time ?? r.TIME ?? "";
+      const location = r.location ?? r.LOCATION ?? "";
+      const speed = r.SpeedValue ?? r.speed ?? r.SPEED ?? "";
+      const over = r.OverSpeed ?? r.overspeed ?? r.OVERSPEED;
+
+      return `
+        <div style="font:14px/1.5 system-ui, -apple-system, Segoe UI, Arial;">
+          <div><b>車牌：</b>${car}</div>
+          <div><b>路線：</b>${lineid}</div>
+          <div><b>時間：</b>${time}</div>
+          <div><b>位置描述：</b>${location}</div>
+          <div><b>速度：</b>${speed}${speed!=="" ? " km/h" : ""} ${over ? "<b style='color:#c00'>(疑似超速)</b>" : ""}</div>
+          <hr style="border:none;border-top:1px solid #ddd;margin:8px 0;">
+          <div><b>座標來源：</b>${latlngInfo.crs}</div>
+          <div><b>lat,lng：</b>${latlngInfo.lat.toFixed(6)}, ${latlngInfo.lng.toFixed(6)}</div>
+        </div>
+      `;
+    }
+
+    function upsertMarker(r) {
+      const car = r.car ?? r.CAR;
+      if (!car) return;
+
+      const latlngInfo = toLatLng(r);
+      if (!latlngInfo) return;
+
+      const latlng = [latlngInfo.lat, latlngInfo.lng];
+      const html = popupHtml(r, latlngInfo);
+
+      if (markersByCar[car]) {
+        markersByCar[car].setLatLng(latlng).setPopupContent(html);
+      } else {
+        const m = L.circleMarker(latlng, {
+          radius: 6,
+          weight: 2,
+          fillOpacity: 0.75
+        }).addTo(map);
+        m.bindPopup(html);
+        markersByCar[car] = m;
+      }
+    }
+
+    function clearMissingCars(currentCarsSet) {
+      // 可選：如果某些車不再回傳，將 marker 移除
+      for (const car of Object.keys(markersByCar)) {
+        if (!currentCarsSet.has(car)) {
+          map.removeLayer(markersByCar[car]);
+          delete markersByCar[car];
+        }
+      }
+    }
+
+    async function fetchAndRender() {
+      const t0 = Date.now();
+      statusEl.textContent = "抓取資料中…";
+
+      try {
+        const res = await fetch(API_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+
+        const data = await res.json();
+
+        if (!Array.isArray(data)) {
+          // 有些平台會包一層 { data: [...] }，這裡做容錯
+          const maybe = data?.data ?? data?.result ?? data?.records;
+          if (Array.isArray(maybe)) {
+            renderArray(maybe, t0);
+            return;
+          }
+          throw new Error("回傳不是陣列，且找不到 data/result/records 欄位");
+        }
+
+        renderArray(data, t0);
+      } catch (err) {
+        statusEl.textContent = "抓取失敗：" + (err?.message ?? err);
+        console.error(err);
+      }
+    }
+
+    function renderArray(arr, t0) {
+      const cars = new Set();
+      let plotted = 0;
+
+      for (const r of arr) {
+        const car = r.car ?? r.CAR;
+        if (car) cars.add(car);
+        const before = plotted;
+        upsertMarker(r);
+        // 粗略估：如果有 car 且座標合法就會新增/更新
+        if ((r.car ?? r.CAR) && toLatLng(r)) plotted += 1;
+      }
+
+      clearMissingCars(cars);
+
+      const ms = Date.now() - t0;
+      statusEl.textContent = `更新完成：收到 ${arr.length} 筆 / 顯示約 ${plotted} 台車（${ms} ms）｜每 ${Math.round(REFRESH_MS/1000)} 秒更新`;
+    }
+
+    // 啟動
+    fetchAndRender();
+    setInterval(fetchAndRender, REFRESH_MS);
+  </script>
+</body>
+</html>
